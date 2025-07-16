@@ -48,6 +48,11 @@ jobs:
       - name: Build token list
         run: npm run build
 
+      - name: Check Authentication
+        run: npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Publish to NPM
         run: npm publish --access public
         env:
