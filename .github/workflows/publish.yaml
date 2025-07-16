@@ -1,0 +1,54 @@
+name: Publish
+
+on:
+  # Manual trigger from GitHub → Actions → Publish → Run workflow
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: 'Version bump type (patch | minor | major). Leave empty if you have already updated package.json.'
+        required: false
+        default: ''
+
+jobs:
+  publish:
+    name: Build & Publish to NPM
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Optional version bump
+        if: ${{ github.event.inputs.bump != '' }}
+        run: |
+          npm version ${{ github.event.inputs.bump }} -m "chore(release): %s"
+          echo "Version bumped to $(node -p "require('./package.json').version")"
+
+      - name: Push version commit & tag
+        if: ${{ github.event.inputs.bump != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "quickswap-bot"
+          git config user.email "bot@quickswap.exchange"
+          git push origin HEAD --follow-tags
+
+      - name: Build token list
+        run: npm run build
+
+      - name: Publish to NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
