@@ -118,5 +118,13 @@
         "decimals": 6,
         "chainId": 13371,
         "logoURI": "https://agora-finance.github.io/public-assets/token-icon/AUSD.svg"
+      },
+      {
+        "name": "END",
+        "address": "0x43D7B1F2E92c620FC45cC81d3818E4620AbaF240",
+        "symbol": "END",
+        "decimals": 18,
+        "chainId": 13371,
+        "logoURI": "https://imgur.com/fGDfPEc"
       }
 ]

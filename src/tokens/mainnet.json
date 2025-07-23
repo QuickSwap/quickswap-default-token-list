@@ -1084,5 +1084,14 @@
     "chainId": 137,
     "logoURI": "https://i.imgur.com/OEZdhkf.jpg",
     "trending": false
+  },
+  {
+    "name": "PHT",
+    "address": "0xe75220cB014Dfb2D354bb59be26d7458bB8d0706",
+    "symbol": "PHT",
+    "decimals": 18,
+    "chainId": 137,
+    "logoURI": "https://imgur.com/a/ozwVu2d",
+    "trending": false
   }
 ]
