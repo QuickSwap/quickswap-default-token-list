@@ -30,6 +30,9 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Check git status before version bump
+        run: git status
+
       - name: Optional version bump
         if: ${{ github.event.inputs.bump != '' }}
         run: |
