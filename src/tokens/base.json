@@ -75,7 +75,7 @@
   },
   {
     "name": "QUICKSWAP",
-    "address": "0x7094c27f342dbadfbbed005b219431595e33b305",
+    "address": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
     "symbol": "QUICK",
     "decimals": 18,
     "chainId": 8453,
