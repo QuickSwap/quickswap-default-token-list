@@ -17,6 +17,7 @@ const MINATO = require('./tokens/minato.json');
 const SONEIUM = require('./tokens/soneium.json');
 const SOMNIA_TESTNET = require('./tokens/somnia_testnet.json');
 const BASE = require('./tokens/base.json');
+const KNO = require('./tokens/kno.json');
 
 module.exports = function buildList() {
   const parsed = version.split('.');
@@ -52,7 +53,8 @@ module.exports = function buildList() {
       ...MINATO,
       ...SONEIUM,
       ...SOMNIA_TESTNET,
-      ...BASE
+      ...BASE,
+      ...KNO
     ]
       // sort them by symbol for easy readability
       .sort((t1, t2) => {

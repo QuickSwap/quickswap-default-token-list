@@ -1,0 +1,12 @@
+[
+    {
+        "name": "KNO coin",
+        "address": "0x236fbfAa3Ec9E0B9BA013Df370c098bAd85aD631",
+        "symbol": "KNO",
+        "decimals": 18,
+        "chainId": 137,
+        "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/0x236fbfAa3Ec9E0B9BA013Df370c098bAd85aD631.png",
+        "trending": false
+      }
+
+]
