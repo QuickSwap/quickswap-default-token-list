@@ -90,9 +90,9 @@
     "logoURI": "https://dd.dexscreener.com/ds-data/tokens/base/0xfa1c790f96bde6dfffa2860b794a096e8d85bb07.png?size=lg&key=0385a9"
   },
   {
-    "name": "BasedPepe",
+    "name": "Based Pepe",
     "address": "0x52b492a33E447Cdb854c7FC19F1e57E8BfA1777D",
-    "symbol": "BPEPE",
+    "symbol": "PEPE",
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://basedpepe.vip/logo.svg"
@@ -156,5 +156,29 @@
     "symbol": "KTA",
     "decimals": 18,
     "chainId": 8453
+  },
+  {
+    "name": "Naifu",
+    "address": "0xCbbf42FD016ea9110E3cB0D710fd37f9291496D9",
+    "symbol": "NAIFU",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://imgnai.com/logo/naifu-200x200.png"
+  },
+  {
+    "name": "TrumpAI",
+    "address": "0xB1A3DA042F9a71f67db5195E9DC4Da65fc6B1157",
+    "symbol": "TRUMPAI",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://imgnai.com/logo/trump_400x400.jpg"
+  },
+  {
+    "name": "ZEN",
+    "address": "0xf43eB8De897Fbc7F2502483B2Bef7Bb9EA179229",
+    "symbol": "ZEN",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://coin-images.coingecko.com/coins/images/691/large/Horizen2.0-logo_icon-on-yellow_%281%29.png?1751696763"
   }
 ]
