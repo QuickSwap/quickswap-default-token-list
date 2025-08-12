@@ -90,9 +90,9 @@
     "logoURI": "https://dd.dexscreener.com/ds-data/tokens/base/0xfa1c790f96bde6dfffa2860b794a096e8d85bb07.png?size=lg&key=0385a9"
   },
   {
-    "name": "BasedPepe",
+    "name": "Based Pepe",
     "address": "0x52b492a33E447Cdb854c7FC19F1e57E8BfA1777D",
-    "symbol": "BPEPE",
+    "symbol": "PEPE",
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://basedpepe.vip/logo.svg"
