@@ -80,5 +80,81 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://etherscan.io/token/images/quickswapnew_32.png"
+  },
+  {
+    "name": "retard",
+    "address": "0xFA1c790f96bDe6DfFfa2860b794A096E8d85Bb07",
+    "symbol": "RETARD",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://dd.dexscreener.com/ds-data/tokens/base/0xfa1c790f96bde6dfffa2860b794a096e8d85bb07.png?size=lg&key=0385a9"
+  },
+  {
+    "name": "BasedPepe",
+    "address": "0x52b492a33E447Cdb854c7FC19F1e57E8BfA1777D",
+    "symbol": "BPEPE",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://basedpepe.vip/logo.svg"
+  },
+  {
+    "name": "MASQ",
+    "address": "0x45D9C101a3870Ca5024582fd788F4E1e8F7971c3",
+    "symbol": "MASQ",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://assets.coingecko.com/coins/images/13699/large/MASQ_Logo_Blue_Solo_Transparent.png?1616661801"
+  },
+  {
+    "name": "RWA Inc",
+    "address": "0xE2B1dc2D4A3b4E59FDF0c47B71A7A86391a8B35a",
+    "symbol": "RWA",
+    "decimals": 18,
+    "chainId": 8453
+  },
+  {
+    "name": "Chainlink",
+    "address": "0x88Fb150BDc53A65fe94Dea0c9BA0a6dAf8C6e196",
+    "symbol": "LINK",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://assets.coingecko.com/coins/images/877/large/chainlink-new-logo.png?1547034700"
+  },
+  {
+    "name": "Aave",
+    "address": "0x63706e401c06ac8513145b7687A14804d17f814b",
+    "symbol": "AAVE",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://assets.coingecko.com/coins/images/12645/large/AAVE.png?1601374110"
+  },
+  {
+    "name": "BRETT",
+    "address": "0x532f27101965dd16442E59d40670FaF5eBB142E4",
+    "symbol": "BRETT",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://assets.coingecko.com/coins/images/30980/large/brett.png"
+  },
+  {
+    "name": "AIXBT",
+    "address": "0x4F9Fd6Be4a90f2620860d680c0d4d5Fb53d1A825",
+    "symbol": "AIXBT",
+    "decimals": 18,
+    "chainId": 8453
+  },
+  {
+    "name": "Virtual Protocol",
+    "address": "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
+    "symbol": "VIRTUAL",
+    "decimals": 18,
+    "chainId": 8453
+  },
+  {
+    "name": "Keeta",
+    "address": "0xc0634090F2Fe6c6d75e61Be2b949464aBB498973",
+    "symbol": "KTA",
+    "decimals": 18,
+    "chainId": 8453
   }
 ]
