@@ -31,7 +31,7 @@
     "symbol": "IMGN",
     "decimals": 18,
     "chainId": 8453,
-    "logoURI": "https://basescan.org/token/images/imgnlabs_64.svg"
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/IMGN.webp"
   },
   {
     "name": "Coinbase ETH",
@@ -79,7 +79,7 @@
     "symbol": "QUICK",
     "decimals": 18,
     "chainId": 8453,
-    "logoURI": "https://etherscan.io/token/images/quickswapnew_32.png"
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/QUICK.webp"
   },
   {
     "name": "retard",
@@ -126,7 +126,7 @@
     "symbol": "AAVE",
     "decimals": 18,
     "chainId": 8453,
-    "logoURI": "https://assets.coingecko.com/coins/images/12645/large/AAVE.png?1601374110"
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/AAVE.webp"
   },
   {
     "name": "BRETT",
@@ -180,5 +180,37 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://coin-images.coingecko.com/coins/images/691/large/Horizen2.0-logo_icon-on-yellow_%281%29.png?1751696763"
+  },
+  {
+    "name": "Morpho Token",
+    "address": "0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842",
+    "symbol": "MORPHO",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/MORPHO.webp"
+  },
+  {
+    "name": "Stratex USD",
+    "address": "0xe5f2fe713CDB192C85e67A912Ff8891b4E636614",
+    "symbol": "STRATUSD",
+    "decimals": 6,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/STRATUSD.webp"
+  },
+  {
+    "name": "Stratex ETH",
+    "address": "0xaE35FF1BC4fBb45AAEef9768A3d9610786cAc98b",
+    "symbol": "STRATETH",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/STRATETH.webp"
+  },
+  {
+    "name": "Stratex BTC",
+    "address": "0x9213d24f617dE982dB528c95A701eD1b2AF29cB2",
+    "symbol": "STRATBTC",
+    "decimals": 8,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/STRATBTC.webp"
   }
 ]
