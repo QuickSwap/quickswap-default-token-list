@@ -95,7 +95,7 @@
     "symbol": "PEPE",
     "decimals": 18,
     "chainId": 8453,
-    "logoURI": "https://basedpepe.vip/logo.svg"
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/BASED-PEPE.webp"
   },
   {
     "name": "MASQ",
@@ -134,14 +134,15 @@
     "symbol": "BRETT",
     "decimals": 18,
     "chainId": 8453,
-    "logoURI": "https://assets.coingecko.com/coins/images/30980/large/brett.png"
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/BRETT.webp"
   },
   {
     "name": "AIXBT",
     "address": "0x4F9Fd6Be4a90f2620860d680c0d4d5Fb53d1A825",
     "symbol": "AIXBT",
     "decimals": 18,
-    "chainId": 8453
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/AIXBT.webp"
   },
   {
     "name": "Virtual Protocol",
@@ -195,7 +196,7 @@
     "symbol": "STRATUSD",
     "decimals": 6,
     "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/STRATUSD.webp"
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/StratUSD.webp"
   },
   {
     "name": "Stratex ETH",
@@ -203,7 +204,7 @@
     "symbol": "STRATETH",
     "decimals": 18,
     "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/STRATETH.webp"
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/StratETH.webp"
   },
   {
     "name": "Stratex BTC",
@@ -211,6 +212,6 @@
     "symbol": "STRATBTC",
     "decimals": 8,
     "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/STRATBTC.webp"
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/StratBTC.webp"
   }
 ]
