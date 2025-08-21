@@ -149,7 +149,8 @@
     "address": "0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b",
     "symbol": "VIRTUAL",
     "decimals": 18,
-    "chainId": 8453
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/VIRTUAL.webp"
   },
   {
     "name": "Keeta",
@@ -213,5 +214,21 @@
     "decimals": 8,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/StratBTC.webp"
+  },
+  {
+    "name": "Tether USD",
+    "address": "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2",
+    "symbol": "USDT",
+    "decimals": 6,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDT.webp"
+  },
+  {
+    "name": "Base tBTC v2",
+    "address": "0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b",
+    "symbol": "TBTC",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/tBTC.webp"
   }
 ]
