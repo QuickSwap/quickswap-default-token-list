@@ -1,0 +1,38 @@
+[
+  {
+    "name": "USD Coin",
+    "address": "0x28BEc7E30E6faee657a03e19Bf1128AaD7632A00",
+    "symbol": "USDC",
+    "decimals": 6,
+    "chainId": 5031,
+    "logoURI": "https://basescan.org/token/images/centre-usdc_28.png",
+    "trending": false
+  },
+  {
+    "name": "Wrapped Ether",
+    "address": "0x936Ab8C674bcb567CD5dEB85D8A216494704E9D8",
+    "symbol": "WETH",
+    "decimals": 18,
+    "chainId": 5031,
+    "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png",
+    "trending": false
+  },
+  {
+    "name": "Tether USD",
+    "address": "0x67B302E35Aef5EEE8c32D934F5856869EF428330",
+    "symbol": "USDT",
+    "decimals": 6,
+    "chainId": 5031,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDT.webp",
+    "trending": false
+  },
+  {
+    "name": "Wrapped SOMI",
+    "address": "0x046EDe9564A72571df6F5e44d0405360c0f4dCab",
+    "symbol": "WSOMI",
+    "decimals": 18,
+    "chainId": 5031,
+    "logoURI": "",
+    "trending": false
+  }
+]
