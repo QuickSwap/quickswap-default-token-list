@@ -230,5 +230,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/tBTC.webp"
+  },
+  {
+    "name": "first choice coin",
+    "address": "0x50582260cea29663dBf0E7aaDbc1ef72Fa9f7768",
+    "symbol": "FCC",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/FCC.webp"
   }
 ]
