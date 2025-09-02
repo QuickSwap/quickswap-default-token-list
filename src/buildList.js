@@ -54,13 +54,8 @@ module.exports = function buildList() {
       ...MINATO,
       ...SONEIUM,
       ...SOMNIA_TESTNET,
-<<<<<<< Updated upstream
       ...BASE,
       ...SOMNIA
-=======
-      ...SOMNIA,
-      ...BASE
->>>>>>> Stashed changes
     ]
       // sort them by symbol for easy readability
       .sort((t1, t2) => {
