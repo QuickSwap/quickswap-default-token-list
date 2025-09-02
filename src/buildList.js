@@ -16,7 +16,6 @@ const ETHEREUM = require('./tokens/ethereum.json');
 const MINATO = require('./tokens/minato.json');
 const SONEIUM = require('./tokens/soneium.json');
 const SOMNIA_TESTNET = require('./tokens/somnia_testnet.json');
-const SOMNIA = require('./tokens/somnia.json');
 const BASE = require('./tokens/base.json');
 const SOMNIA = require('./tokens/somnia.json');
 
