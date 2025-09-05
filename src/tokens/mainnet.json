@@ -71,7 +71,6 @@
     "logoURI": "https://i.imgur.com/lB49ZJ1.png",
     "trending": false
   },
-
   {
     "name": "Aavegotchi GHST Token",
     "address": "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
@@ -126,7 +125,7 @@
     "logoURI": "https://etherscan.io/token/images/telcoin_28.png",
     "trending": false
   },
- {
+  {
     "name": "Aave",
     "address": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
     "symbol": "AAVE",
@@ -171,7 +170,6 @@
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/WOO-NETWORK.webp",
     "trending": false
   },
-
   {
     "name": "Avalanche Token",
     "address": "0x2C89bbc92BD86F8075d1DEcc58C7F4E0107f286b",
@@ -379,7 +377,6 @@
     "logoURI": "https://assets.coingecko.com/coins/images/14134/small/tower-circular-1000.png?1632195469",
     "trending": false
   },
-
   {
     "name": "PlanetIX",
     "address": "0xE06Bd4F5aAc8D0aA337D13eC88dB6defC6eAEefE",
@@ -452,7 +449,6 @@
     "logoURI": "https://assets.coingecko.com/coins/images/15315/small/pleasurecoin-icon.png?1648724879",
     "trending": false
   },
-
   {
     "name": "Revolt 2 Earn",
     "address": "0x5d301750cc9719f00872E33Ee81f9C37aBa242F4",
@@ -507,7 +503,6 @@
     "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
     "trending": false
   },
-
   {
     "name": "Aavegotchi FOMO",
     "address": "0x44A6e0BE76e1D9620A7F76588e4509fE4fa8E8C8",
@@ -589,7 +584,6 @@
     "logoURI": "https://res.cloudinary.com/metavault/image/upload/v1668603846/brand-assets/brandLogos/MVX-COIN_Simple_jikqce.png",
     "trending": false
   },
-
   {
     "name": "Wrapped liquid staked Ether 2.0",
     "address": "0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD",
@@ -599,8 +593,6 @@
     "logoURI": "https://assets.coingecko.com/coins/images/13442/small/steth_logo.png?1608607546",
     "trending": false
   },
-
-
   {
     "name": "MEE Governance Token",
     "address": "0xEB7eaB87837f4Dad1bb80856db9E4506Fc441f3D",
@@ -610,7 +602,6 @@
     "logoURI": "https://i.imgur.com/JnwWka0.png",
     "trending": true
   },
-
   {
     "name": "Coinbase Wrapped Staked ETH",
     "address": "0x4b4327dB1600B8B1440163F667e199CEf35385f5",
@@ -629,7 +620,6 @@
     "logoURI": "https://i.imgur.com/gwmgrf0.png",
     "trending": false
   },
-
   {
     "name": "EverRise",
     "address": "0xC17c30e98541188614dF99239cABD40280810cA3",
@@ -648,7 +638,6 @@
     "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/3625.png",
     "trending": false
   },
-
   {
     "name": "BitCone",
     "address": "0xbA777aE3a3C91fCD83EF85bfe65410592Bdd0f7c",
@@ -721,7 +710,6 @@
     "logoURI": "https://i.imgur.com/AeegcxP.png",
     "trending": false
   },
-
   {
     "name": "Digital Fitness",
     "address": "0x428360b02C1269bc1c79fbC399ad31d58C1E8fdA",
@@ -740,7 +728,6 @@
     "logoURI": "https://i.postimg.cc/qBWpKF3r/IMG-20240123-225021-225.png",
     "trending": false
   },
-
   {
     "name": "NFTBOOKS",
     "address": "0x6396252377F54ad33cFF9131708Da075b21d9B88",
@@ -768,7 +755,6 @@
     "logoURI": "https://s3.coinmarketcap.com/static-gravity/image/bac2ec73cdbb4eaf9920a534498d43b1.png",
     "trending": false
   },
-
   {
     "name": "Ethernity CLOUD",
     "address": "0xc6920888988cAcEeA7ACCA0c96f2D65b05eE22Ba",
@@ -778,7 +764,6 @@
     "logoURI": "https://pbs.twimg.com/profile_images/1663893983578279941/ZStnNJ8m_400x400.png",
     "trending": false
   },
-
   {
     "name": "Chain Games",
     "address": "0xd55fCe7CDaB84d84f2EF3F99816D765a2a94a509",
@@ -788,7 +773,6 @@
     "logoURI": "https://i.imgur.com/8WP8qFm.jpeg",
     "trending": false
   },
-
   {
     "name": "Ubuntu",
     "address": "0x78445485A8d5b3BE765e3027bc336e3c272a23c9",
@@ -807,7 +791,6 @@
     "logoURI": "https://d19z9f49qtk8r2.cloudfront.net/assets/images/logos/zk-Race-logomark-bordered-256x256.png",
     "trending": false
   },
-
   {
     "name": "Geodnet Token",
     "address": "0xAC0F66379A6d7801D7726d5a943356A172549Adb",
@@ -826,9 +809,6 @@
     "logoURI": "https://i.imgur.com/egPMCht.png",
     "trending": true
   },
-
-
-
   {
     "name": "Morpheus.Network",
     "address": "0x3c59798620e5fEC0Ae6dF1A19c6454094572Ab92",
@@ -838,8 +818,6 @@
     "logoURI": "https://i.ibb.co/HY07xZV/MNW.png",
     "trending": false
   },
-
-
   {
     "name": "GOON",
     "address": "0x433cDE5a82b5e0658dA3543b47A375dffd126Eb6",
@@ -912,7 +890,6 @@
     "logoURI": "https://i.imgur.com/leVSn1S.jpeg",
     "trending": false
   },
-
   {
     "name": "SUPER TRUST",
     "address": "0x98965474EcBeC2F532F1f780ee37b0b05F77Ca55",
@@ -1039,7 +1016,6 @@
     "logoURI": "https://i.imgur.com/0PQHjZa.png",
     "trending": false
   },
-
   {
     "name": "How To DAO",
     "address": "0x6Fc91FBE42f72941486c98D11724B14Fb8d18b36",
@@ -1093,5 +1069,13 @@
     "chainId": 137,
     "logoURI": "https://i.imgur.com/vIX6pTjh.jpg",
     "trending": false
+  },
+  {
+    "name": "Poly Picks AI",
+    "address": "0x52C9CD4bDE1A30bA540A7f764dd36da53Ef307D3",
+    "symbol": "PICKS",
+    "decimals": 18,
+    "chainId": 137,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/PICKS.webp"
   }
 ]

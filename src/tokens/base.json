@@ -238,5 +238,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/FCC.webp"
+  },
+  {
+    "name": "latenightonbase",
+    "address": "0xDe421B66199EF8a32FECB879bd689892037e8B07",
+    "symbol": "LNOB",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/LNOB.webp"
   }
 ]
