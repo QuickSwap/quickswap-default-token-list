@@ -254,5 +254,21 @@
     "decimals": 6,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/EURC.webp"
+  },
+  {
+    "name": "Ratio1",
+    "address": "0x6444C6c2D527D85EA97032da9A7504d6d1448ecF",
+    "symbol": "RATIO1",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/RATIO1.webp"
+  },
+  {
+    "name": "Krypto Cock",
+    "address": "0x290D4a2E227cCeD586895c3f78A03E4E9d4C3FB6",
+    "symbol": "COCK",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/COCK.webp"
   }
 ]
