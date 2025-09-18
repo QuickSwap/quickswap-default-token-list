@@ -258,7 +258,7 @@
   {
     "name": "Ratio1",
     "address": "0x6444C6c2D527D85EA97032da9A7504d6d1448ecF",
-    "symbol": "RATIO1",
+    "symbol": "R1",
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/RATIO1.webp"
