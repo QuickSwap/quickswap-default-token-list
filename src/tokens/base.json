@@ -294,5 +294,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDS.webp"
+  },
+  {
+    "name": "TOWER",
+    "address": "0xf7C1CEfCf7E1dd8161e00099facD3E1Db9e528ee",
+    "symbol": "TOWER",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/TOWER.webp"
   }
 ]
