@@ -1,0 +1,29 @@
+[
+  {
+    "name": "USD Coin",
+    "address": "0x5E76be0F4e09057D75140216F70fd4cE3365bb29",
+    "symbol": "USDC",
+    "decimals": 6,
+    "chainId": 5888,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDC.png",
+    "trending": false
+  },
+  {
+    "name": "Tether USD",
+    "address": "0x680e8ECB908A2040232ef139A0A52cbE47b9F15B",
+    "symbol": "USDT",
+    "decimals": 6,
+    "chainId": 5888,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDT.webp",
+    "trending": false
+  },
+  {
+    "name": "Wrapped OM",
+    "address": "0xE3047710EF6cB36Bcf1E58145529778eA7Cb5598",
+    "symbol": "WOM",
+    "decimals": 18,
+    "chainId": 5888,
+    "logoURI": "",
+    "trending": false
+  }
+]
