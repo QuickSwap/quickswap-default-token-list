@@ -63,13 +63,5 @@
         "decimals": 18,
         "chainId": 2000,
         "logoURI": "https://i.imgur.com/CLrv6GK.png"
-    },
-    {
-        "name": "USDoge",
-        "address": "0xD95086Fe465a2DC59F989B927472a901E2e05ff2",
-        "symbol": "USDO",
-        "decimals": 18,
-        "chainId": 2000,
-        "logoURI": "http://novadao.io/usdo/usdo-64.png"
     }
 ]
