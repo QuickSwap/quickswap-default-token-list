@@ -302,5 +302,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/TOWER.webp"
+  },
+  {
+    "name": "NAVFinance",
+    "address": "0xA15D5c95b7c0EeCAC06F673Ad390ad6066705Af7",
+    "symbol": "NAV",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/NAV.webp"
   }
 ]
