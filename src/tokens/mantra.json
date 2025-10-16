@@ -23,7 +23,7 @@
     "symbol": "WOM",
     "decimals": 18,
     "chainId": 5888,
-    "logoURI": "",
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/WOM.webp",
     "trending": false
   }
 ]
