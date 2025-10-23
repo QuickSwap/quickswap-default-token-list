@@ -319,5 +319,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/ZORA.webp"
+  },
+  {
+    "name": "Metacade",
+    "address": "0xc48823EC67720a04A9DFD8c7d109b2C3D6622094",
+    "symbol": "MCADE",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/MCADE.webp"
   }
 ]
