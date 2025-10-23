@@ -311,5 +311,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/NAV.webp"
+  },
+  {
+    "name": "Zora",
+    "address": "0x1111111111166b7FE7bd91427724B487980aFc69",
+    "symbol": "ZORA",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/ZORA.webp"
   }
 ]
