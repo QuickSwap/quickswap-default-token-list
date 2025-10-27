@@ -327,5 +327,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/MCADE.webp"
+  },
+  {
+    "name": "bAP3X",
+    "address": "0x9208d82F121806A34a39bB90733b4C5c54F3993e",
+    "symbol": "bAP3X",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/bAP3X.webp"
   }
 ]
