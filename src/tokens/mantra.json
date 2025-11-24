@@ -1,5 +1,14 @@
 [
   {
+    "name": "MANTRA USD",
+    "address": "0xd2b95283011E47257917770D28Bb3EE44c849f6F",
+    "symbol": "mantraUSD",
+    "decimals": 6,
+    "chainId": 5888,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/mantraUSD.webp",
+    "trending": false
+  },
+  {
     "name": "USD Coin",
     "address": "0x5E76be0F4e09057D75140216F70fd4cE3365bb29",
     "symbol": "USDC",
