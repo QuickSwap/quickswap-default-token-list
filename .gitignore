@@ -1,3 +1,35 @@
-.idea/
+# Dependencies
 node_modules
+.pnpm-store
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
 build/
+dist/
+
+# Environment & Secrets (CRITICAL)
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+creds.json
+config.js
+secrets.js
+
+# System
+.DS_Store
+.Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+.truffler-cache/
