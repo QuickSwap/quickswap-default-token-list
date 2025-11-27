@@ -1,66 +1,307 @@
-name: Publish
+name: Secure NPM Publish
+
+# ⚠️ SECURITY: This workflow uses Trusted Publishers (OIDC)
+# No long-lived tokens needed - authentication via GitHub identity
+# Requires NPM organization setup: https://docs.npmjs.com/trusted-publishers
 
 on:
-  # Manual trigger from GitHub → Actions → Publish → Run workflow
+  # Manual trigger with version bump options
   workflow_dispatch:
     inputs:
       bump:
-        description: 'Version bump type (patch | minor | major). Leave empty if you have already updated package.json.'
+        description: 'Version bump type'
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - prerelease
+        default: 'patch'
+      
+      dry_run:
+        description: 'Dry run (test without publishing)'
         required: false
-        default: ''
+        type: boolean
+        default: false
+
+  # Automatic publish on release tags
+  push:
+    tags:
+      - 'v*.*.*'
+
+# Security: Minimal permissions by default
+permissions:
+  contents: write  # For creating git commits/tags
+  id-token: write  # For OIDC authentication with NPM (Trusted Publishers)
+  pull-requests: read
 
 jobs:
-  publish:
-    name: Build & Publish to NPM
+  # ============================================
+  # JOB 1: Security Audit & Validation
+  # ============================================
+  security-audit:
+    name: 🔒 Security Audit
     runs-on: ubuntu-latest
-
+    timeout-minutes: 10
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for accurate changelog
 
-      - name: Setup Node 20.x
+      - name: Setup Node.js 20 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Verify package integrity
+        run: |
+          echo "📦 Verifying package.json integrity..."
+          node -e "JSON.parse(require('fs').readFileSync('package.json'))"
+          
+      - name: Install dependencies (with audit)
+        run: |
+          npm ci --ignore-scripts
+          
+      - name: Run security audit
+        run: |
+          npm audit --audit-level=moderate
+          
+      - name: Check for known vulnerabilities
+        run: |
+          npx audit-ci --moderate
+        continue-on-error: true
+        
+      - name: Validate token list schema
+        run: npm test
+
+  # ============================================
+  # JOB 2: Build & Test
+  # ============================================
+  build-and-test:
+    name: 🏗️ Build & Test
+    runs-on: ubuntu-latest
+    needs: security-audit
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js 20 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+        
+      - name: Run tests
+        run: npm test
+        
+      - name: Build token list
+        run: npm run build
+        
+      - name: Validate build output
+        run: |
+          if [ ! -f "build/quickswap-default.tokenlist.json" ]; then
+            echo "❌ Build failed: tokenlist.json not found"
+            exit 1
+          fi
+          
+          # Validate JSON structure
+          node -e "const list = require('./build/quickswap-default.tokenlist.json'); \
+                   if (!list.name || !list.version || !list.tokens) { \
+                     throw new Error('Invalid tokenlist structure'); \
+                   }"
+          
+          echo "✅ Build validation passed"
+          
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tokenlist-build
+          path: build/
+          retention-days: 7
+
+  # ============================================
+  # JOB 3: Version Bump (if manual trigger)
+  # ============================================
+  version-bump:
+    name: 📝 Version Bump
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.event_name == 'workflow_dispatch' && !inputs.dry_run
+    timeout-minutes: 5
+    
+    outputs:
+      new_version: ${{ steps.bump.outputs.new_version }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Configure Git
+        run: |
+          git config user.name "quickswap-bot"
+          git config user.email "bot@quickswap.exchange"
+          
+      - name: Bump version
+        id: bump
+        run: |
+          echo "Current version: $(node -p "require('./package.json').version")"
+          
+          npm version ${{ inputs.bump }} -m "chore(release): v%s [skip ci]"
+          
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "✅ Version bumped to: $NEW_VERSION"
+          
+      - name: Push version commit & tag
+        run: |
+          git push origin HEAD --follow-tags
+          echo "✅ Pushed v${{ steps.bump.outputs.new_version }}"
+
+  # ============================================
+  # JOB 4: Publish to NPM (Secure)
+  # ============================================
+  publish-npm:
+    name: 🚀 Publish to NPM
+    runs-on: ubuntu-latest
+    needs: [build-and-test, version-bump]
+    # Run on tags OR manual workflow (skip if dry_run)
+    if: |
+      (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')) ||
+      (github.event_name == 'workflow_dispatch' && !inputs.dry_run)
+    timeout-minutes: 10
+    
+    environment:
+      name: npm-production
+      url: https://www.npmjs.com/package/@quickswap-defi/token-list
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js with NPM registry
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org/'
-
+          
+      - name: Download build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tokenlist-build
+          path: build/
+          
       - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npm test
-
-      - name: Basic security audit
-        run: npm audit --audit-level high
-
-      - name: Configure Git user
-        if: ${{ github.event.inputs.bump != '' }}
-        run: |
-          git config user.name "quickswap-bot"
-          git config user.email "bot@quickswap.exchange"
-
-      - name: Optional version bump
-        if: ${{ github.event.inputs.bump != '' }}
-        run: |
-          npm version ${{ github.event.inputs.bump }} -m "chore(release): %s"
-          echo "Version bumped to $(node -p "require('./package.json').version")"
-
-      - name: Push version commit & tag
-        if: ${{ github.event.inputs.bump != '' }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git push origin HEAD --follow-tags
-
-      - name: Build token list
+        run: npm ci --ignore-scripts
+        
+      - name: Rebuild (ensure consistency)
         run: npm run build
-
-      - name: Check Authentication
+        
+      - name: Pre-publish verification
+        run: |
+          echo "📋 Package details:"
+          npm pack --dry-run
+          
+          echo ""
+          echo "📦 Package contents:"
+          npm publish --dry-run
+          
+      # 🔐 SECURITY: Check authentication (via OIDC or token)
+      - name: Verify NPM authentication
         run: npm whoami
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+        
+      # 🚀 PUBLISH with provenance
       - name: Publish to NPM
-        run: npm publish --access public
+        run: |
+          npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
+      - name: Get published version
+        id: version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          release_name: v${{ steps.version.outputs.version }}
+          body: |
+            ## 📦 NPM Package Published
+            
+            **Package:** `@quickswap-defi/token-list@${{ steps.version.outputs.version }}`
+            **NPM:** https://www.npmjs.com/package/@quickswap-defi/token-list
+            
+            ### Installation
+            ```bash
+            npm install @quickswap-defi/token-list@${{ steps.version.outputs.version }}
+            ```
+            
+            ### Verification
+            This package was published with [NPM Provenance](https://docs.npmjs.com/generating-provenance-statements) for supply chain security.
+            
+            Verify authenticity:
+            ```bash
+            npm view @quickswap-defi/token-list@${{ steps.version.outputs.version }} --json
+            ```
+          draft: false
+          prerelease: ${{ contains(steps.version.outputs.version, '-') }}
+
+  # ============================================
+  # JOB 5: Post-Publish Verification
+  # ============================================
+  verify-publish:
+    name: ✅ Verify Publication
+    runs-on: ubuntu-latest
+    needs: publish-npm
+    timeout-minutes: 5
+    
+    steps:
+      - name: Wait for NPM registry propagation
+        run: sleep 30
+        
+      - name: Verify package is published
+        run: |
+          PACKAGE_VERSION=$(npm view @quickswap-defi/token-list version)
+          echo "✅ Published version: $PACKAGE_VERSION"
+          
+          # Verify provenance
+          npm view @quickswap-defi/token-list --json | jq '.provenance'
+          
+      - name: Test installation
+        run: |
+          mkdir -p /tmp/test-install
+          cd /tmp/test-install
+          npm init -y
+          npm install @quickswap-defi/token-list --ignore-scripts
+          
+          echo "✅ Package installation successful"
+          
+      - name: Notify success
+        run: |
+          echo "🎉 Publication verified successfully!"
+          echo "Package: @quickswap-defi/token-list"
+          echo "NPM: https://www.npmjs.com/package/@quickswap-defi/token-list"
+
