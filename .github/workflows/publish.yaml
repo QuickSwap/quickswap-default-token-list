@@ -222,18 +222,10 @@ jobs:
           echo "📦 Package contents:"
           npm publish --dry-run
           
-      # 🔐 SECURITY: Check authentication (via OIDC or token)
-      - name: Verify NPM authentication
-        run: npm whoami
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        
       # 🚀 PUBLISH with provenance
       - name: Publish to NPM
         run: |
           npm publish --access public --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           
       - name: Get published version
         id: version
