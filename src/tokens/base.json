@@ -351,5 +351,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/fBOMB.webp"
+  },
+  {
+    "name": "Symmio",
+    "address": "0x800822d361335b4d5F352Dac293cA4128b5B605f",
+    "symbol": "SYMM",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/SYMM.webp"
   }
 ]
