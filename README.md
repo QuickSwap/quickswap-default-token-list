@@ -1,88 +1,148 @@
-# QuickSwap Default Token List
+# @quickswap-defi/token-list
 
-[![NPM Version](https://img.shields.io/npm/v/quickswap-default-token-list.svg)](https://www.npmjs.com/package/quickswap-default-token-list)
+[![npm version](https://img.shields.io/npm/v/@quickswap-defi/token-list.svg)](https://www.npmjs.com/package/@quickswap-defi/token-list)
+[![npm downloads](https://img.shields.io/npm/dm/@quickswap-defi/token-list.svg)](https://www.npmjs.com/package/@quickswap-defi/token-list)
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](https://opensource.org/licenses/GPL-3.0)
+[![Security](https://img.shields.io/badge/provenance-verified-brightgreen)](https://docs.npmjs.com/generating-provenance-statements)
 
-## Overview
+Official QuickSwap token list for multi-chain DeFi applications. Includes curated token metadata for Polygon, Base, zkEVM, and other supported networks.
 
-This repository contains the definitive default token list used across the QuickSwap ecosystem and is published as an [NPM package](https://www.npmjs.com/package/quickswap-default-token-list).
+---
 
-The primary goal is to provide a source of token information for dApps, wallets, and developers interacting with QuickSwap.
+## 🚨 Migration Notice
+
+**Former package name:** `quickswap-token-lists` (deprecated)  
+**New package name:** `@quickswap-defi/token-list`
+
+---
 
 ## Installation
 
-You can install the package via NPM:
-
 ```bash
-npm install quickswap-default-token-list
+# npm
+npm install @quickswap-defi/token-list
+
+# pnpm
+pnpm add @quickswap-defi/token-list
+
+# yarn
+yarn add @quickswap-defi/token-list
 ```
 
 ## Usage
 
-Once installed, you can import the JSON token list directly into your project.
+```typescript
+import tokenList from '@quickswap-defi/token-list';
 
-**JavaScript / TypeScript Example:**
+// Access token list data
+console.log(tokenList.name);     // "Quickswap Default List"
+console.log(tokenList.version);  // { major: 2, minor: 0, patch: 0 }
+console.log(tokenList.tokens);   // Array of token metadata
 
-```javascript
-import tokenList from 'quickswap-default-token-list';
-// or if you are using CommonJS
-// const tokenList = require('quickswap-default-token-list');
+// Filter tokens by chain
+const polygonTokens = tokenList.tokens.filter(
+  token => token.chainId === 137
+);
 
-console.log(tokenList.tokens);
-
-// Example: Find a token by its symbol
-const wmatic = tokenList.tokens.find(token => token.symbol === 'WMATIC');
-console.log(wmatic);
+// Find specific token
+const usdc = tokenList.tokens.find(
+  token => token.symbol === 'USDC' && token.chainId === 137
+);
 ```
 
-The list is structured by networks. You can find tokens for Polygon PoS, zkEVM, and other supported chains inside the `src/tokens/` directory. The build process aggregates them into a single file.
+## Token Listing Process
 
-## Contributing: Adding a Token
+> ⚠️ **IMPORTANT**: Token listing is NOT automatic. We DO NOT accept external Pull Requests or Issues for token listings without prior Business Development approval.
 
-We welcome contributions to expand the token list. To maintain quality and security, please follow these steps:
+### Listing Requirements
 
-1. **Do Not Create a Pull Request Directly:** All token additions or updates must start with an issue.
-2. **File an Issue:** Use the [**Token Request template**](https://github.com/QuickSwap/quickswap-default-token-list/issues/new?assignees=&labels=token+request&template=token-request.md&title=Add+%7BTOKEN_SYMBOL%7D%3A+%7BTOKEN_NAME%7D) to submit your token. Please provide all the required information.
-3. **Review Process:** The team will review the issue. Please be patient, as this process takes time.
+To ensure the quality and safety of our list, your token **MUST** meet ALL of these criteria:
 
-**Disclaimer:** Filing an issue does not guarantee that a token will be added to the list. The QuickSwap team reserves the right to accept or reject any token request at its discretion.
+1. **Total Value Locked (TVL):** Minimum $100k USD
+2. **Security Audit:** Valid third-party security audit report
+3. **Trading Volume:** Consistent daily volume demonstrating real usage
+4. **Token Verification:** Verified contract on blockchain explorer
+5. **Project Legitimacy:** Active community, clear documentation, and transparent governance
 
-## Development & Automation
+### How to Request a Listing
 
-This repository is configured with GitHub Actions for CI/CD.
+You must contact our BD team directly to initiate the process. Do not open a GitHub Issue.
 
-### Local Development
+* **Telegram:** [QuickSwap Official Community](https://t.me/+OQ-H4hjc-BU5ZmRl)
 
-1. **Clone the repository:**
+* **Only after BD approval**, our technical team will provide instructions on how to submit your token metadata.
+* **Unsolicited PRs will be closed immediately.**
 
-    ```bash
-    git clone https://github.com/QuickSwap/quickswap-default-token-list.git
-    cd quickswap-default-token-list
-    ```
+---
 
-2. **Install dependencies:**
+## Supported Networks
 
-    ```bash
-    npm install
-    ```
+| Network | Chain ID |
+|---------|----------|
+| Polygon | 137 |
+| Ethereum | 1 |
+| Base | 8453 |
+| Polygon zkEVM | 1101 |
+| Manta | 169 |
+| IMX | 13371 |
+| X1 | 195 |
+| Dogechain | 2000 |
+| And more... | See `src/tokens/` |
 
-3. **Run tests:**
-    Tests validate the integrity of the token lists (e.g., schema compliance, no duplicate entries).
+## Development (Maintainers Only)
 
-    ```bash
-    npm test
-    ```
+### Prerequisites
 
-4. **Build the list:**
-    This command generates the final `quickswap-default.tokenlist.json` file in the `build/` directory.
+* Node.js >= 18
+* npm >= 8
 
-    ```bash
-    npm run build
-    ```
+### Setup
 
-### Publishing
+```bash
+# Install dependencies
+npm ci
 
-Publishing to NPM is handled automatically via the [Publish workflow](.github/workflows/publish.yaml) and is triggered manually by maintainers.
+# Run tests
+npm test
+
+# Build token list
+npm run build
+
+# Output: build/quickswap-default.tokenlist.json
+```
+
+## Security
+
+### NPM Provenance
+
+All published versions include [NPM Provenance](https://docs.npmjs.com/generating-provenance-statements) for supply chain security.
+
+**Verify authenticity:**
+
+```bash
+npm view @quickswap-defi/token-list --json | jq '.provenance'
+```
+
+**Manual publish:**
+
+```bash
+# Bump version
+npm version patch  # or minor/major
+
+# Publish with provenance
+npm publish --access public --provenance
+```
 
 ## License
 
-This project is licensed under the [GPL-3.0-or-later](LICENSE).
+GPL-3.0-or-later - See [LICENSE](./LICENSE)
+
+## Links
+
+* **NPM Package:** <https://www.npmjs.com/package/@quickswap-defi/token-list>
+* **GitHub:** <https://github.com/QuickSwap/quickswap-default-token-list>
+* **QuickSwap:** <https://quickswap.exchange>
+* **Discord:** <https://discord.com/invite/cSbHcjBSWM>
+* **Twitter:** <https://twitter.com/QuickswapDEX>
+
+**Maintained by:** [QuickSwap Team](https://quickswap.exchange)
