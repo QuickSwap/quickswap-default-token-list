@@ -228,8 +228,6 @@ jobs:
           npm publish --dry-run
           
       # 🚀 PUBLISH with provenance
-      # Note: --provenance flag is required for OIDC (npm/cli#8730)
-      # The publishConfig.provenance in package.json may not be sufficient alone
       - name: Publish to NPM
         run: |
           npm publish --access public --provenance
