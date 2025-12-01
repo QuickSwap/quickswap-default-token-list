@@ -359,5 +359,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/SYMM.webp"
+  },
+  {
+    "name": "PlanetIX",
+    "address": "0x920e753d8d7d5b598063C89b6f06288803448D06",
+    "symbol": "fAIX",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/fAIX.webp"
   }
 ]
