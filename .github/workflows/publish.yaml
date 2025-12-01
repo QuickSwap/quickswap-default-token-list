@@ -291,12 +291,10 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           
       - name: Create GitHub Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.version.outputs.version }}
-          release_name: v${{ steps.version.outputs.version }}
+          name: v${{ steps.version.outputs.version }}
           body: |
             ## 📦 NPM Package Published
             
@@ -317,6 +315,7 @@ jobs:
             ```
           draft: false
           prerelease: ${{ contains(steps.version.outputs.version, '-') }}
+          generate_release_notes: true
 
   # ============================================
   # JOB 5: Post-Publish Verification
