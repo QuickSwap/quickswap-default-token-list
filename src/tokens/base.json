@@ -367,5 +367,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/AIX.webp"
+  },
+  {
+    "name": "AITV",
+    "address": "0x45e4e92F5A94F4B741C9cb553FF8bE7B25Eb7dF5",
+    "symbol": "AITV",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/AITV.webp"
   }
 ]
