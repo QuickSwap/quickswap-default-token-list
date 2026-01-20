@@ -375,5 +375,21 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/AITV.webp"
+  },
+  {
+    "name": "Songjam by Virtuals",
+    "address": "0x4FF4d349CAa028BD069bbE85fA05253f96176741",
+    "symbol": "SANG",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/SANG.webp"
+  },
+  {
+    "name": "Kibble",
+    "address": "0x64cc19A52f4D631eF5BE07947CABA14aE00c52Eb",
+    "symbol": "KIBBLE",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/KIBBLE.webp"
   }
 ]
