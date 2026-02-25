@@ -1101,5 +1101,13 @@
     "decimals": 18,
     "chainId": 137,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/RAIN.webp"
+  },
+  {
+    "name": "Pixer",
+    "address": "0xD8b0a1A75CFacAe8C385df6FAc0697feb79deb12",
+    "symbol": "PXR",
+    "decimals": 18,
+    "chainId": 137,
+    "logoURI": "https://assets.pixer.cloud/images/256x256_pxr_coin.png"
   }
 ]
