@@ -233,14 +233,6 @@
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/FCC.webp"
   },
   {
-    "name": "latenightonbase",
-    "address": "0xDe421B66199EF8a32FECB879bd689892037e8B07",
-    "symbol": "LNOB",
-    "decimals": 18,
-    "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/LNOB.webp"
-  },
-  {
     "name": "EURC",
     "address": "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42",
     "symbol": "EURC",
@@ -255,14 +247,6 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/RATIO1.webp"
-  },
-  {
-    "name": "Krypto Cock",
-    "address": "0x290D4a2E227cCeD586895c3f78A03E4E9d4C3FB6",
-    "symbol": "COCK",
-    "decimals": 18,
-    "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/COCK.webp"
   },
   {
     "name": "metacademax",
@@ -337,14 +321,6 @@
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/cbADA.webp"
   },
   {
-    "name": "Fantom Bomb",
-    "address": "0x74ccbe53F77b08632ce0CB91D3A545bF6B8E0979",
-    "symbol": "fBOMB",
-    "decimals": 18,
-    "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/fBOMB.webp"
-  },
-  {
     "name": "Symmio",
     "address": "0x800822d361335b4d5F352Dac293cA4128b5B605f",
     "symbol": "SYMM",
@@ -383,5 +359,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/KIBBLE.webp"
+  },
+  {
+    "name": "RYFT",
+    "address": "0x3597194C3b8A9481141Fb9C628FC398C120A58A9",
+    "symbol": "RYFT",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/RYFT.webp"
   }
 ]
