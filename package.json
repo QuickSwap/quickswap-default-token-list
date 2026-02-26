@@ -1,6 +1,6 @@
 {
   "name": "@quickswap-defi/token-list",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "Official Quickswap token list - Multi-chain DeFi token metadata",
   "main": "build/quickswap-default.tokenlist.json",
   "scripts": {
@@ -8,11 +8,27 @@
     "build": "rimraf build && mkdir -p build && node src/write.js > build/quickswap-default.tokenlist.json",
     "prepublishOnly": "npm test && npm run build"
   },
-  "files": ["build/quickswap-default.tokenlist.json"],
-  "keywords": ["quickswap", "defi", "token-list", "polygon", "base", "zkevm", "erc20", "multichain"],
+  "files": [
+    "build/quickswap-default.tokenlist.json"
+  ],
+  "keywords": [
+    "quickswap",
+    "defi",
+    "token-list",
+    "polygon",
+    "base",
+    "zkevm",
+    "erc20",
+    "multichain"
+  ],
   "license": "GPL-3.0-or-later",
-  "repository": {"type": "git", "url": "https://github.com/QuickSwap/quickswap-default-token-list.git"},
-  "bugs": {"url": "https://github.com/QuickSwap/quickswap-default-token-list/issues"},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/QuickSwap/quickswap-default-token-list.git"
+  },
+  "bugs": {
+    "url": "https://github.com/QuickSwap/quickswap-default-token-list/issues"
+  },
   "homepage": "https://quickswap.exchange",
   "devDependencies": {
     "@ethersproject/address": "5.7.0",
@@ -32,6 +48,12 @@
       }
     }
   },
-  "engines": {"node": ">=18.0.0", "npm": ">=8.0.0"},
-  "publishConfig": {"access": "public", "provenance": true}
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
 }
