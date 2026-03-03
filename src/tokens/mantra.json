@@ -27,9 +27,9 @@
     "trending": false
   },
   {
-    "name": "Wrapped OM",
+    "name": "Wrapped MANTRA",
     "address": "0xE3047710EF6cB36Bcf1E58145529778eA7Cb5598",
-    "symbol": "WOM",
+    "symbol": "WMANTRA",
     "decimals": 18,
     "chainId": 5888,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/WOM.webp",
