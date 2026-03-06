@@ -34,5 +34,23 @@
     "chainId": 5888,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/WOM.webp",
     "trending": false
+  },
+  {
+    "name": "Hyperliquid",
+    "address": "0x2d01885f395186903ac76D0C67b94f1F8BcE6727",
+    "symbol": "HYPE",
+    "decimals": 18,
+    "chainId": 5888,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/HYPE.webp",
+    "trending": false
+  },
+  {
+    "name": "stMANTRA",
+    "address": "0x4131a80b67BE287627766B858C3C6d7f9e900324",
+    "symbol": "stMANTRA",
+    "decimals": 18,
+    "chainId": 5888,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/stMANTRA.webp",
+    "trending": false
   }
 ]
