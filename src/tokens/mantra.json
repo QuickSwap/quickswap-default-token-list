@@ -52,5 +52,13 @@
     "chainId": 5888,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/stMANTRA.webp",
     "trending": false
+  },
+  {
+    "name": "Cropto Wheat Token",
+    "address": "0x87f3895F975C67BA4577EF6C4F9e8d71359d8d67",
+    "symbol": "CROW",
+    "decimals": 18,
+    "chainId": 5888,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/CROW.webp"
   }
 ]
