@@ -367,5 +367,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/RYFT.webp"
+  },
+  {
+    "name": "HandlPay",
+    "address": "0x3BBCb624CB9A1f73163A886F460f47603E5E4425",
+    "symbol": "HANDL",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/HANDL.webp"
   }
 ]
