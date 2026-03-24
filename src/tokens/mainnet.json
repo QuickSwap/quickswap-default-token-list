@@ -1101,5 +1101,13 @@
     "decimals": 18,
     "chainId": 137,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/RAIN.webp"
+  },
+  {
+    "name": "HandlPay",
+    "address": "0xf4C3Fac9c98aA62474998E299495B699DFDb00Eb",
+    "symbol": "HANDL",
+    "decimals": 18,
+    "chainId": 137,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/HANDL.webp"
   }
 ]
