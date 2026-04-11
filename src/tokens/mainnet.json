@@ -63,15 +63,6 @@
     "trending": false
   },
   {
-    "name": "OM",
-    "address": "0xC3Ec80343D2bae2F8E680FDADDe7C17E71E114ea",
-    "symbol": "OM",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/lB49ZJ1.png",
-    "trending": false
-  },
-  {
     "name": "Aavegotchi GHST Token",
     "address": "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
     "symbol": "GHST",
@@ -105,15 +96,6 @@
     "decimals": 18,
     "chainId": 137,
     "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png",
-    "trending": false
-  },
-  {
-    "name": "Ocean Token",
-    "address": "0x282d8efCe846A88B159800bd4130ad77443Fa1A1",
-    "symbol": "mOCEAN",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://oceanprotocol.com/static/4ad704a150d436a1f32d495413fc47cd/favicon-white.png",
     "trending": false
   },
   {
@@ -216,33 +198,6 @@
     "trending": false
   },
   {
-    "name": "NASDEX Token",
-    "address": "0xE8d17b127BA8b9899a160D9a07b69bCa8E08bfc6",
-    "symbol": "NSDX",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://assets.coingecko.com/coins/images/18634/small/nadex.PNG?1632727863",
-    "trending": false
-  },
-  {
-    "name": "Forest Knight",
-    "address": "0x4455eF8B4B4A007a93DaA12DE63a47EEAC700D9D",
-    "symbol": "KNIGHT",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://assets.coingecko.com/coins/images/18441/small/Coin_Forest_Knight_200x200.png?1632480031",
-    "trending": false
-  },
-  {
-    "name": "BLOK",
-    "address": "0x229b1b6C23ff8953D663C4cBB519717e323a0a84",
-    "symbol": "BLOK",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://pbs.twimg.com/profile_images/1443182135410634754/l1wH-p3b_400x400.jpg",
-    "trending": false
-  },
-  {
     "name": "Dogelon",
     "address": "0xE0339c80fFDE91F3e20494Df88d4206D86024cdF",
     "symbol": "ELON",
@@ -279,39 +234,12 @@
     "trending": false
   },
   {
-    "name": "FireStarter",
-    "address": "0x22e3f02f86Bc8eA0D73718A2AE8851854e62adc5",
-    "symbol": "FLAME",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://assets.coingecko.com/coins/images/17359/small/Logo_black_%282%29.png?1634095075",
-    "trending": false
-  },
-  {
     "name": "NFT Champions",
     "address": "0x8f9E8e833A69Aa467E42c46cCA640da84DD4585f",
     "symbol": "CHAMP",
     "decimals": 8,
     "chainId": 137,
     "logoURI": "https://assets.coingecko.com/coins/images/19536/small/champ.png?1635905981",
-    "trending": false
-  },
-  {
-    "name": "FABWELT",
-    "address": "0x23E8B6A3f6891254988B84Da3738D2bfe5E703b9",
-    "symbol": "WELT",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://assets.coingecko.com/coins/images/20505/small/welt.PNG?1637143324",
-    "trending": false
-  },
-  {
-    "name": "MASQ",
-    "address": "0xEe9A352F6aAc4aF1A5B9f467F6a93E0ffBe9Dd35",
-    "symbol": "MASQ",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://assets.coingecko.com/coins/images/13699/small/MASQ_Logo_Blue_Solo_Transparent.png?1616661801",
     "trending": false
   },
   {
@@ -387,39 +315,12 @@
     "trending": true
   },
   {
-    "name": "Banana",
-    "address": "0xbC91347e80886453F3f8bBd6d7aC07C122D87735",
-    "symbol": "BANANA",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://assets.coingecko.com/coins/images/17521/small/banana-token-cg.png?1646285527",
-    "trending": false
-  },
-  {
-    "name": "Nitro",
-    "address": "0x695FC8B80F344411F34bDbCb4E621aA69AdA384b",
-    "symbol": "NITRO",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://assets.coingecko.com/coins/images/21668/small/_X6vYBDM_400x400.jpg?1639705848",
-    "trending": false
-  },
-  {
     "name": "Staked MATIC",
     "address": "0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4",
     "symbol": "stMATIC",
     "decimals": 18,
     "chainId": 137,
     "logoURI": "https://assets.coingecko.com/coins/images/24185/small/stMATIC.png?1646789287",
-    "trending": false
-  },
-  {
-    "name": "NEAR",
-    "address": "0x72bd80445b0db58ebe3E8dB056529D4C5FAF6F2f",
-    "symbol": "NEAR",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://assets.coingecko.com/coins/images/10365/small/near_icon.png?1601359077",
     "trending": false
   },
   {
@@ -450,15 +351,6 @@
     "trending": false
   },
   {
-    "name": "Revolt 2 Earn",
-    "address": "0x5d301750cc9719f00872E33Ee81f9C37aBa242F4",
-    "symbol": "RVLT",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/19893.png",
-    "trending": false
-  },
-  {
     "name": "Sunflower Land",
     "address": "0xD1f9c58e33933a993A3891F8acFe05a68E1afC05",
     "symbol": "SFL",
@@ -486,39 +378,12 @@
     "trending": false
   },
   {
-    "name": "Catheon Gaming",
-    "address": "0x7e7737C40878e720b32e7bC9CD096259f876d69f",
-    "symbol": "CATHEON",
-    "decimals": 9,
-    "chainId": 137,
-    "logoURI": "https://assets.coingecko.com/coins/images/28052/small/_removal.ai__tmp-635fe0271d6a3%281%29.png?1667286253",
-    "trending": false
-  },
-  {
     "name": "Axelar Wrapped USDC",
     "address": "0x750e4C4984a9e0f12978eA6742Bc1c5D248f40ed",
     "symbol": "axlUSDC",
     "decimals": 6,
     "chainId": 137,
     "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
-    "trending": false
-  },
-  {
-    "name": "Aavegotchi FOMO",
-    "address": "0x44A6e0BE76e1D9620A7F76588e4509fE4fa8E8C8",
-    "symbol": "FOMO",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://assets.coingecko.com/coins/images/24737/small/fomo.png?1648769659",
-    "trending": false
-  },
-  {
-    "name": "Aavegotchi FUD",
-    "address": "0x403E967b044d4Be25170310157cB1A4Bf10bdD0f",
-    "symbol": "FUD",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://assets.coingecko.com/coins/images/24736/small/fud.png?1648769512",
     "trending": false
   },
   {
@@ -531,24 +396,6 @@
     "trending": false
   },
   {
-    "name": "Aavegotchi KEK",
-    "address": "0x42E5E06EF5b90Fe15F853F59299Fc96259209c5C",
-    "symbol": "KEK",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://assets.coingecko.com/coins/images/24739/small/kek.png?1648769879",
-    "trending": false
-  },
-  {
-    "name": "GAX Liquidity Token Reward",
-    "address": "0x3801C3B3B5c98F88a9c9005966AA96aa440B9Afc",
-    "symbol": "GLTR",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.ibb.co/qMMwsK7/gltr-token.png",
-    "trending": false
-  },
-  {
     "name": "Dragon QUICK(NEW)",
     "address": "0x958d208Cdf087843e9AD98d23823d32E17d723A1",
     "symbol": "dQUICK(NEW)",
@@ -558,30 +405,12 @@
     "trending": false
   },
   {
-    "name": "Artificial Liquid Intelligence Token",
-    "address": "0xbFc70507384047Aa74c29Cdc8c5Cb88D0f7213AC",
-    "symbol": "ALI",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/WxPZm2m.png",
-    "trending": false
-  },
-  {
     "name": "Volt Inu",
     "address": "0x7f792db54B0e580Cdc755178443f0430Cf799aCa",
     "symbol": "VOLT",
     "decimals": 9,
     "chainId": 137,
     "logoURI": "https://i.imgur.com/g7mzfRz.png",
-    "trending": false
-  },
-  {
-    "name": "Metavault Trade",
-    "address": "0x2760E46d9BB43dafCbEcaad1F64b93207f9f0eD7",
-    "symbol": "MVX",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://res.cloudinary.com/metavault/image/upload/v1668603846/brand-assets/brandLogos/MVX-COIN_Simple_jikqce.png",
     "trending": false
   },
   {
@@ -612,33 +441,6 @@
     "trending": false
   },
   {
-    "name": "Saiyan PEPE",
-    "address": "0xfcA466F2fA8E667a517C9C6cfa99Cf985be5d9B1",
-    "symbol": "SPEPE",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/gwmgrf0.png",
-    "trending": false
-  },
-  {
-    "name": "EverRise",
-    "address": "0xC17c30e98541188614dF99239cABD40280810cA3",
-    "symbol": "RISE",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://data.everrise.com/icons/smartchain/0xc17c30e98541188614df99239cabd40280810ca3.png",
-    "trending": false
-  },
-  {
-    "name": "Quadrant Protocol",
-    "address": "0xDAB625853c2B35D0a9C6bD8e5a097a664ef4CcFb",
-    "symbol": "eQUAD",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/3625.png",
-    "trending": false
-  },
-  {
     "name": "BitCone",
     "address": "0xbA777aE3a3C91fCD83EF85bfe65410592Bdd0f7c",
     "symbol": "CONE",
@@ -654,15 +456,6 @@
     "decimals": 6,
     "chainId": 137,
     "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png",
-    "trending": false
-  },
-  {
-    "name": "ICHI",
-    "address": "0x111111517e4929D3dcbdfa7CCe55d30d4B6BC4d6",
-    "symbol": "ICHI",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/jO4wPoF.png",
     "trending": false
   },
   {
@@ -684,48 +477,12 @@
     "trending": false
   },
   {
-    "name": "DappRadar",
-    "address": "0xdCb72AE4d5dc6Ae274461d57E65dB8D50d0a33AD",
-    "symbol": "RADAR",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://static.dappradar.com/grc-public-assets/uploads/radar-logo-256.png",
-    "trending": false
-  },
-  {
-    "name": "Global Coin Research",
-    "address": "0xa69d14d6369E414a32a5C7E729B7afbAfd285965",
-    "symbol": "GCR",
-    "decimals": 4,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/UBjdemW.png",
-    "trending": false
-  },
-  {
     "name": "GONE",
     "address": "0x162539172b53E9a93b7d98Fb6c41682De558a320",
     "symbol": "GONE",
     "decimals": 18,
     "chainId": 137,
     "logoURI": "https://i.imgur.com/AeegcxP.png",
-    "trending": false
-  },
-  {
-    "name": "Digital Fitness",
-    "address": "0x428360b02C1269bc1c79fbC399ad31d58C1E8fdA",
-    "symbol": "DEFIT",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/FhKKgTM.png",
-    "trending": false
-  },
-  {
-    "name": "CULO",
-    "address": "0x74dD45dd579caD749f9381D6227e7e02277C944B",
-    "symbol": "CULO",
-    "decimals": 9,
-    "chainId": 137,
-    "logoURI": "https://i.postimg.cc/qBWpKF3r/IMG-20240123-225021-225.png",
     "trending": false
   },
   {
@@ -744,33 +501,6 @@
     "decimals": 18,
     "chainId": 137,
     "logoURI": "https://s3.coinmarketcap.com/static-gravity/image/b75b09929e244c6ab9806bd2ca0b20db.jpg",
-    "trending": false
-  },
-  {
-    "name": "Carbify",
-    "address": "0xB6a5ae40e79891E4DeAdAd06C8A7cA47396Df21C",
-    "symbol": "CBY",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://s3.coinmarketcap.com/static-gravity/image/bac2ec73cdbb4eaf9920a534498d43b1.png",
-    "trending": false
-  },
-  {
-    "name": "Ethernity CLOUD",
-    "address": "0xc6920888988cAcEeA7ACCA0c96f2D65b05eE22Ba",
-    "symbol": "ECLD",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://pbs.twimg.com/profile_images/1663893983578279941/ZStnNJ8m_400x400.png",
-    "trending": false
-  },
-  {
-    "name": "Chain Games",
-    "address": "0xd55fCe7CDaB84d84f2EF3F99816D765a2a94a509",
-    "symbol": "CHAIN",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/8WP8qFm.jpeg",
     "trending": false
   },
   {
@@ -882,15 +612,6 @@
     "trending": false
   },
   {
-    "name": "Moonflow",
-    "address": "0x7AEfff599570dEC2F3DbBc2ACe3cb1F8206749eB",
-    "symbol": "MOON",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/leVSn1S.jpeg",
-    "trending": false
-  },
-  {
     "name": "SUPER TRUST",
     "address": "0x98965474EcBeC2F532F1f780ee37b0b05F77Ca55",
     "symbol": "SUT",
@@ -909,84 +630,12 @@
     "trending": false
   },
   {
-    "name": "AKA",
-    "address": "0xA3dd6163B5742B0D8Cb7d79CB5DFE3F81F8F8fC4",
-    "symbol": "AKA",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/oHnij18.png",
-    "trending": false
-  },
-  {
-    "name": "BEAST",
-    "address": "0x4191F84f66e0B7CC10370Ff47a0E2168E35b9Bdf",
-    "symbol": "BEAST",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/MuXBgrA.png",
-    "trending": false
-  },
-  {
-    "name": "Citizen Wallet",
-    "address": "0x0D9B0790E97e3426C161580dF4Ee853E4A7C4607",
-    "symbol": "CTZN",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/bi74zCb.png",
-    "trending": false
-  },
-  {
-    "name": "Melodex",
-    "address": "0x5FDAF637Aed59B2e6d384d9e84D8ac5cF03c6697",
-    "symbol": "MELS",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/lYQZY87.jpeg",
-    "trending": false
-  },
-  {
-    "name": "The Grand Timeline",
-    "address": "0xfAFB870F1918827fe57Ca4b891124606EaA7e6bd",
-    "symbol": "GRNDT",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/bqiz50F.png",
-    "trending": false
-  },
-  {
-    "name": "Alpha Chad",
-    "address": "0xA1a78aC9884aDc9d04d59b2b743f1eC709618e55",
-    "symbol": "ACHAD",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/bwdDhxg.png",
-    "trending": false
-  },
-  {
-    "name": "x23.ai",
-    "address": "0xc530B75465Ce3c6286e718110A7B2e2B64Bdc860",
-    "symbol": "X23",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/LpjPHcP.png",
-    "trending": false
-  },
-  {
     "name": "Prismo Technology",
     "address": "0x0b7a46E1af45E1EaadEeD34B55b6FC00A85c7c68",
     "symbol": "PRSM",
     "decimals": 18,
     "chainId": 137,
     "logoURI": "https://i.imgur.com/OWFhZHs.png",
-    "trending": false
-  },
-  {
-    "name": "GENKI",
-    "address": "0xA7A01E16efC51010c1C8E900c6b1c5a828A7aB8a",
-    "symbol": "GENKI",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://raw.githubusercontent.com/Kapitanliki/genkicoin/main/logo.png",
     "trending": false
   },
   {
@@ -1008,60 +657,6 @@
     "trending": false
   },
   {
-    "name": "Gridlock",
-    "address": "0x69CE536f95a84E1eF51Ed0132C514c7CE012E49b",
-    "symbol": "LOCK",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/0PQHjZa.png",
-    "trending": false
-  },
-  {
-    "name": "How To DAO",
-    "address": "0x6Fc91FBE42f72941486c98D11724B14Fb8d18b36",
-    "symbol": "H2DAO",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/cWAlJiz.png",
-    "trending": false
-  },
-  {
-    "name": "TO DA MOON",
-    "address": "0x878b6bF76F7BA67D0c4Da616eAc1933f9b133C1c",
-    "symbol": "TDM",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/T77rzag.png",
-    "trending": false
-  },
-  {
-    "name": "Web3 Pack",
-    "address": "0x4Fb9B94BD8bBbD684a7D5A5544Bc7A07188E5617",
-    "symbol": "PACK",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/jMOxP5C.png",
-    "trending": false
-  },
-  {
-    "name": "RUM",
-    "address": "0x14E5386f47466A463f85D151653E1736c0c50Fc3",
-    "symbol": "RUM",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/Pib5e7H.jpg",
-    "trending": false
-  },
-  {
-    "name": "eUSDCBMASr",
-    "address": "0xF383eF2D31E1d4a19B3e04ca2937DB6A8DA9f229",
-    "symbol": "eUSDCBMASr",
-    "decimals": 6,
-    "chainId": 137,
-    "logoURI": "https://i.imgur.com/OEZdhkf.jpg",
-    "trending": false
-  },
-  {
     "name": "PHT",
     "address": "0xe75220cB014Dfb2D354bb59be26d7458bB8d0706",
     "symbol": "PHT",
@@ -1069,30 +664,6 @@
     "chainId": 137,
     "logoURI": "https://i.imgur.com/vIX6pTjh.jpg",
     "trending": false
-  },
-  {
-    "name": "Poly Picks AI",
-    "address": "0xA5F5D53CB5077831528d735Bf1590C472197c4dF",
-    "symbol": "PICKS",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/PICKS.webp"
-  },
-  {
-    "name": "BRZ Token",
-    "address": "0x4eD141110F6EeeAbA9A1df36d8c26f684d2475Dc",
-    "symbol": "BRZ",
-    "decimals": 18,
-    "chainId": 137,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/BRZ.webp"
-  },
-  {
-    "name": "IDRX",
-    "address": "0x649a2DA7B28E0D54c13D5eFf95d3A660652742cC",
-    "symbol": "IDRX",
-    "decimals": 0,
-    "chainId": 137,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/IDRX.webp"
   },
   {
     "name": "Rain Coin",
