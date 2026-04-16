@@ -375,5 +375,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/HANDL.webp"
+  },
+  {
+    "name": "PENMT Mettal",
+    "address": "0x862a1226E6EA04E34EA3ddB4346C7a2c693E06aB",
+    "symbol": "PENMT",
+    "decimals": 6,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/PENMT.webp"
   }
 ]
