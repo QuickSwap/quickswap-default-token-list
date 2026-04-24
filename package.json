@@ -5,8 +5,7 @@
   "main": "build/quickswap-default.tokenlist.json",
   "scripts": {
     "test": "mocha",
-    "build": "rimraf build && mkdir -p build && node src/write.js > build/quickswap-default.tokenlist.json",
-    "prepublishOnly": "npm test && npm run build"
+    "build": "rimraf build && mkdir -p build && node src/write.js > build/quickswap-default.tokenlist.json"
   },
   "files": [
     "build/quickswap-default.tokenlist.json"
@@ -52,7 +51,7 @@
   },
   "engines": {
     "node": ">=18.0.0",
-    "npm": ">=8.0.0"
+    "npm": ">=9.5.0"
   },
   "publishConfig": {
     "access": "public",
