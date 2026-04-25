@@ -1,7 +1,7 @@
 name: PR policy (external token PRs)
 
-# ⚠️ MAINTAINERS: Do not add actions/checkout to this workflow.
-# Review security implications before modifying: https://git.io/JcGqL
+# Do not add actions/checkout to this workflow.
+# See https://git.io/JcGqL before modifying.
 
 on:
   pull_request_target:
@@ -32,17 +32,11 @@ jobs:
             // Draft PRs can be legit WIP from maintainers; don't interfere.
             if (pr.draft) return;
 
-            // This workflow's `pull_request_target` trigger has NO `branches:`
-            // filter, so it fires for PRs targeting any branch. The shared
-            // .github/token-paths.json only lives on `main`; loading it from
-            // a different base ref via `getContent({ref: baseSha})` may
-            // succeed or fail depending on what's on that branch. Restrict
-            // the policy to PRs targeting `main` to keep behavior tight and
-            // predictable. Out-of-tree base PRs are simply not handled by
-            // this auto-close policy (they fall through unchanged).
+            // Restrict to PRs targeting main; token-paths.json lives there.
+            // Out-of-tree base PRs are not handled by this policy.
             if (pr.base?.ref !== "main") return;
 
-            // Only target forks (this is the common vector for unsolicited PRs).
+            // Only target forks.
             const isFork = pr.head?.repo?.full_name !== context.repo.owner + "/" + context.repo.repo;
             if (!isFork) return;
 
@@ -58,10 +52,8 @@ jobs:
               per_page: 100,
             });
 
-            // Load the canonical prefix list from the BASE ref (never the PR
-            // head — a fork could edit this file to bypass the policy). This
-            // is the single source of truth shared with
-            // .github/workflows/tests.yaml so the two checks cannot drift.
+            // Load prefix list from the BASE ref (single source of truth
+            // shared with tests.yaml).
             const baseSha = pr.base?.sha;
             if (!baseSha) {
               core.setFailed("PR has no base SHA; cannot load token-paths.json");
@@ -87,10 +79,8 @@ jobs:
               return;
             }
 
-            // Only treat a PR as a "token listing" PR when it actually
-            // modifies paths listed in token-paths.json. Lone package.json /
-            // lockfile / build/** changes can be legitimate dependency bumps
-            // from external contributors and must NOT trigger auto-close.
+            // Only treat as a token-listing PR when files match a prefix.
+            // package.json/lockfile/build edits alone don't trigger auto-close.
             const touchesTokenList = files.some((f) =>
               prefixes.some((p) => f.filename.startsWith(p))
             );
@@ -130,7 +120,7 @@ jobs:
               });
             }
 
-            // Close the PR. We intentionally do not auto-delete the fork branch.
+            // Close the PR (do not delete the fork branch).
             await github.rest.pulls.update({
               owner,
               repo,

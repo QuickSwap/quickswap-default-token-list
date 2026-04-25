@@ -14,15 +14,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Gate: on pull_request from forks, check whether the PR touches token
-  # data/assets. Those fork PRs are auto-closed by pr-policy.yml, so we must
-  # NOT run tests against their code (mocha executes JS from the PR head).
-  # Internal branch PRs and pushes to main always run tests.
+  # Gate: on fork PRs that touch token data/assets, skip tests
+  # (those PRs are auto-closed by pr-policy.yml).
+  # Internal PRs and pushes to main always run tests.
   changes:
     name: Detect fork + token changes
-    # Only relevant for pull_request events. On push to main we always run
-    # tests unconditionally, so skip this job entirely there to avoid
-    # launching a runner that would immediately return "true".
+    # Only needed on pull_request; push to main runs tests unconditionally.
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -41,12 +38,8 @@ jobs:
             const owner = context.repo.owner;
             const repo = context.repo.repo;
 
-            // The workflow trigger filters on `pull_request.branches: [main]`,
-            // so this should always be true. Asserting it explicitly here
-            // protects future maintainers who add another base branch
-            // (e.g., a release branch) without realizing the prefix list
-            // would then be loaded from THAT branch, which may not contain
-            // the canonical .github/token-paths.json.
+            // The workflow trigger already filters on main; this assertion
+            // protects future maintainers who add another base branch.
             const baseRef = pr?.base?.ref;
             if (baseRef !== 'main') {
               core.setFailed(`This gate only supports PRs targeting 'main'; got base='${baseRef}'.`);
@@ -66,10 +59,8 @@ jobs:
               per_page: 100,
             });
 
-            // Load the canonical prefix list from the BASE ref (never the PR
-            // head — a fork could edit this file to bypass the gate). This is
-            // the single source of truth shared with
-            // .github/workflows/pr-policy.yml so the two checks cannot drift.
+            // Load prefix list from the BASE ref (single source of truth
+            // shared with pr-policy.yml).
             const baseSha = pr.base?.sha;
             if (!baseSha) {
               core.setFailed('PR has no base SHA; cannot load token-paths.json');
@@ -95,10 +86,8 @@ jobs:
               return;
             }
 
-            // Mirror pr-policy.yml: a fork PR is "token-touching" only when it
-            // modifies any of the prefixes listed in token-paths.json. Lone
-            // package.json / lockfile / build/** changes are NOT enough to
-            // skip tests.
+            // A fork PR is "token-touching" only when files match a prefix.
+            // package.json/lockfile/build edits alone do not skip tests.
             const touchesTokenList = files.some((f) =>
               prefixes.some((p) => f.filename.startsWith(p))
             );
@@ -113,21 +102,9 @@ jobs:
   test:
     name: Unit Tests
     needs: [changes]
-    # Gate semantics:
-    #   - GitHub Actions treats a SKIPPED upstream job as a reason to skip
-    #     the dependent job by default (no status-check function in the
-    #     `if:`). On push to main, the `changes` job is skipped via its own
-    #     `if: github.event_name == 'pull_request'`, and without an
-    #     explicit `!cancelled()` (or `always()`) here, this `test` job
-    #     would also be silently skipped. `!cancelled()` is the canonical
-    #     idiom to opt out of skip-propagation while still respecting
-    #     workflow cancellation.
-    #   - On push: run (first clause). The `changes` job is intentionally
-    #     skipped on this path; we don't gate on it.
-    #   - On pull_request: require `changes` to have SUCCEEDED AND emitted
-    #     should_run=true. If `changes` fails (e.g., github-script crash,
-    #     API rate limit), the whole clause is false and tests skip with a
-    #     visible upstream failure — fail-closed, not fail-open.
+    # Gate: !cancelled() opts out of skip-propagation when `changes` is
+    # intentionally skipped on push events. On pull_request, require `changes`
+    # to have succeeded and emitted should_run=true (fail-closed if not).
     if: |
       !cancelled() &&
       (
@@ -143,7 +120,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          # Pin to the SHA the `changes` gate evaluated; protects against fork pushing a new commit between gate and checkout.
+          # Pin to the SHA the `changes` gate evaluated.
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Setup Node.js 24

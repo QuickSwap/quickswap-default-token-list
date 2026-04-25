@@ -1,32 +1,17 @@
 name: Secure NPM Publish
 
-# SECURITY: Uses Trusted Publishers (OIDC) — no long-lived tokens
-# Requires NPM trusted publisher config: https://docs.npmjs.com/trusted-publishers
+# Uses npm Trusted Publishers (OIDC). See https://docs.npmjs.com/trusted-publishers
 #
-# REQUIREMENTS:
-# - The `bump-and-tag` job pushes a commit + tag to `main` using the default
-#   `secrets.GITHUB_TOKEN`. Before enabling this workflow, a maintainer MUST
-#   verify:
-#     * The bot user (or default GITHUB_TOKEN / App token in use) is allowed
-#       to push to `main` (bypass list, allowed actors, or CODEOWNERS).
-#     * Tag protection rules (if any) permit bot-created tags matching `v*`.
-#     * Signed-commit requirements are either disabled for the bot OR GPG
-#       signing is configured in this job (currently out of scope).
+# REQUIREMENTS (verify before enabling):
+# - bump-and-tag pushes commit + tag to main via GITHUB_TOKEN; the bot/token
+#   must be permitted by branch protection.
+# - Tag protection (if any) permits tags matching v*.
+# - Signed-commit requirements disabled, or signing configured (out of scope here).
 #
-# ARCHITECTURE:
-# - Primary path: `workflow_dispatch` drives the whole pipeline in ONE run.
-#   All jobs are chained via `needs:` in the SAME workflow run, so the tag
-#   push performed by `bump-and-tag` does NOT need to trigger a downstream
-#   workflow. This is required because pushes made with `GITHUB_TOKEN` do
-#   not fire `push` events for other workflows — relying on the tag push as
-#   a trigger would leave the publish pipeline permanently inert under the
-#   default token.
-#   https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow
-# - Secondary path: `push: tags: v*.*.*` is kept for disaster recovery —
-#   a maintainer can push a tag manually (outside the bot) and trigger the
-#   same pipeline MINUS the bump-and-tag job.
-# - Concurrency group serializes both paths so a workflow_dispatch run and a
-#   tag-push run can never race.
+# Triggers:
+# - workflow_dispatch: full pipeline in one run (jobs chained via needs:).
+# - push:tags v*.*.*: manual recovery path; bump-and-tag is skipped.
+# Concurrency serializes both paths.
 
 on:
   workflow_dispatch:
@@ -205,20 +190,14 @@ jobs:
           echo "=== END DRY RUN ==="
 
       - name: Dry run cleanup
-        # Dry-run-only: npm version mutated package.json/package-lock.json in
-        # the runner's working tree. Restore them so the runner exits clean.
-        # The real (non-dry-run) flow commits those changes, so it doesn't need
-        # this step.
+        # Restore files mutated by `npm version` so the runner exits clean on dry-run.
         if: inputs.dry_run
         run: git checkout -- package.json package-lock.json
 
       # --- Real path: atomic bump + tag + push with retry ---
       - name: Atomic bump, commit, tag, and push (with retry on non-fast-forward)
-        # The retry loop only handles the non-fast-forward case (a concurrent
-        # commit landed on origin/main between fetch and push). Tag collisions
-        # are detected up-front and fail fast — retrying them would loop
-        # forever since origin/main is unchanged and we'd recompute the same
-        # version + collide with the same existing tag.
+        # Retry handles non-fast-forward only. Tag collisions are detected
+        # up-front and fail fast (retry would loop on the same version).
         if: '!inputs.dry_run'
         id: bump
         env:
@@ -231,11 +210,8 @@ jobs:
             echo ""
             echo "=== Bump-and-push attempt ${attempt} of ${MAX_ATTEMPTS} ==="
 
-            # Re-sync branch + tags to origin each iteration. A prior failed
-            # attempt may have left a local commit/tag/dirty tree behind;
-            # `reset --hard` discards branch state. `--prune-tags` removes any
-            # stale local tag from a previous failed iteration so a left-over
-            # local tag doesn't fool the collision check below.
+            # Re-sync each iteration; --prune-tags clears stale local tags
+            # from prior failed iterations.
             git fetch origin main --tags --prune --prune-tags
             git reset --hard origin/main
 
@@ -246,11 +222,8 @@ jobs:
             NEW_VERSION=$(node -p "require('./package.json').version")
             echo "Bumped to: $NEW_VERSION"
 
-            # Tag-collision pre-check: if v${NEW_VERSION} already exists on
-            # origin (e.g., a prior aborted run pushed the tag, or someone
-            # manually tagged this version), fail fast with a clear message.
-            # Pushing without `+` would be rejected anyway, but we want a
-            # specific error rather than a misleading "non-fast-forward" retry.
+            # Tag pre-check: fail fast with a clear error if v${NEW_VERSION}
+            # already exists on origin.
             EXISTING_TAG_SHA=$(git ls-remote --tags origin "refs/tags/v${NEW_VERSION}" | awk '{print $1}')
             if [ -n "$EXISTING_TAG_SHA" ]; then
               echo "Error: tag v${NEW_VERSION} already exists on origin (SHA: ${EXISTING_TAG_SHA})."
@@ -262,11 +235,8 @@ jobs:
             git commit -m "chore(release): v${NEW_VERSION} [skip ci]"
             git tag -a "v${NEW_VERSION}" -m "Release v${NEW_VERSION}"
 
-            # Atomic push: if branch update is rejected (non-fast-forward) the
-            # tag is also rejected, so the remote stays consistent. No
-            # half-state to clean up on the server. We deliberately do NOT use
-            # `+` (force) on either ref — non-FF or tag-already-exists must
-            # surface as a failure, not a silent overwrite.
+            # --atomic: branch + tag rejected together if either fails.
+            # Never use `+` (force).
             if git push --atomic origin \
                  "HEAD:refs/heads/main" \
                  "refs/tags/v${NEW_VERSION}"; then
@@ -288,24 +258,15 @@ jobs:
             sleep $((attempt * 10))
           done
 
-  # ============================================
-  # JOB 4: Publish to NPM (Secure OIDC)
-  # Runs on both paths:
-  #   - workflow_dispatch + !dry_run: after bump-and-tag creates the tag
-  #   - push:tags: directly, with bump-and-tag skipped
-  # Node 24 ships with npm >= 11 which supports OIDC provenance natively.
-  # ============================================
+  # JOB 4: Publish to NPM (OIDC).
+  # Runs on workflow_dispatch (after bump-and-tag) and push:tags
+  # (bump-and-tag skipped).
   publish-npm:
     name: Publish to NPM
     runs-on: ubuntu-latest
     needs: [security-audit, build-and-test, bump-and-tag]
-    # Gate semantics:
-    #   - `!cancelled()` + explicit result checks bypass the skip-propagation
-    #     from `bump-and-tag` being skipped on the push:tags path.
-    #   - On workflow_dispatch: require bump-and-tag to have SUCCEEDED AND
-    #     !dry_run. If dry_run, this job is not supposed to publish.
-    #   - On push:tags: require bump-and-tag to have been SKIPPED (the tag
-    #     already exists; bumping would be nonsensical).
+    # Gate: !cancelled() bypasses skip-propagation when bump-and-tag is
+    # intentionally skipped on the push:tags path.
     if: |
       !cancelled() &&
       needs.security-audit.result == 'success' &&
@@ -329,38 +290,18 @@ jobs:
 
     steps:
       - name: Checkout tag commit
-        # On workflow_dispatch: pin to the SHA `bump-and-tag` just pushed
-        # (NOT the tag name). Tags are mutable; if the bot account were
-        # compromised between bump-and-tag and publish-npm, the tag could be
-        # force-moved to a different commit. Pinning to the SHA closes that
-        # window. The tag name is still validated below for symmetry.
-        # On push:tags: use the ref that triggered the run (the tag), since
-        # we have no `new_sha` output to reference.
+        # workflow_dispatch: pin to the exact SHA from bump-and-tag.
+        # push:tags: use github.ref_name (the tag).
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           ref: ${{ github.event_name == 'workflow_dispatch' && needs.bump-and-tag.outputs.new_sha || github.ref_name }}
           fetch-depth: 0
 
       - name: Verify tag commit is on main and was produced by the release bot
-        # WHY: prevents a user with tag-push privilege from publishing an
-        # arbitrary historical commit by pushing a v*.*.* tag at it. We bind
-        # the tag commit to the release bot identity via four checks, ALL of
-        # which must pass:
-        #   (a) ancestry — the commit is reachable from origin/main. Tolerates
-        #       concurrent merges into main after bump-and-tag; strict equality
-        #       with the origin/main tip would regress in that case.
-        #   (b) subject  — the commit message starts with "chore(release):",
-        #       matching the pattern produced by the bump-and-tag job.
-        #   (c) author email — quickswap-bot's email ("bot@quickswap.exchange").
-        #   (d) author name  — "quickswap-bot".
-        # Subject alone is spoofable by anyone with merge-to-main rights; the
-        # author identity checks raise the bar by requiring a commit authored
-        # by the release bot. This is NOT cryptographic provenance — a
-        # compromised bot account could still forge these fields — but it
-        # significantly raises the bar above pattern matching.
+        # Binds the tag commit to the release bot via four checks
+        # (ancestry, subject prefix, author email, author name). All must pass.
         run: |
-          # HEAD is the tagged commit after checkout, regardless of which path
-          # triggered this job.
+          # HEAD is the tagged commit after checkout.
           TAG_SHA=$(git rev-parse HEAD)
           git fetch origin main
           echo "origin/main tip : $(git rev-parse origin/main)"
@@ -583,27 +524,10 @@ jobs:
           node-version: '24'
 
       - name: Upgrade npm to a pinned version with --include-attestations support
-        # Why we upgrade: Node 24 LTS ships with npm 11.11.x. The
-        # `--include-attestations` flag landed in npm 11.12.0 (npm/cli PR
-        # #9049, commit 8eff5fb, merged 2026-03-18). Without that flag,
-        # `npm audit signatures --json` only emits {invalid, missing} — a
-        # structurally fail-open gate (an empty audit looks identical to a
-        # clean audit). With the flag, npm adds a `verified[]` array
-        # containing each package whose Sigstore attestation passed,
-        # allowing us to positively assert OUR package@version was
-        # attestation-verified.
-        #
-        # Why a SPECIFIC version (NEVER `@latest`): `npm install -g
-        # npm@latest` resolves at runtime to whatever the npm registry
-        # currently labels `latest`. If the npm publisher account is
-        # compromised (account takeover, malicious maintainer commit, etc.)
-        # the next workflow run pulls the malicious version and executes it
-        # as root global on the runner — a textbook supply-chain attack.
-        # Pinning to a specific version makes the upgrade an explicit,
-        # reviewable change. Bump this version deliberately during release
-        # review when needed (quarterly cadence is reasonable).
-        #
-        # Current pin: npm 11.13.0 (latest published as of 2026-04-24).
+        # `--include-attestations` requires npm >= 11.12.0 (adds the
+        # `verified[]` field in `npm audit signatures --json`).
+        # Pin to a specific version (never @latest) so upgrades are explicit.
+        # Pin: npm 11.13.0.
         run: |
           npm install -g npm@11.13.0
           INSTALLED_NPM="$(npm --version)"
@@ -629,14 +553,8 @@ jobs:
           exit 1
 
       - name: Verify package is published with SLSA provenance (registry metadata)
-        # WHY this shape: `.dist.attestations != null` would accept `{}` or any
-        # non-null scalar — meaningless. The registry-recorded provenance
-        # attestation for an OIDC-published package has structure
-        #   { url: ..., provenance: { predicateType: "https://slsa.dev/provenance/vN" } }
-        # We therefore assert that `predicateType` is a SLSA provenance URI.
-        # `//` is jq's alternative operator: it returns the RHS when the LHS is
-        # null or missing, so a missing `.dist.attestations.provenance.predicateType`
-        # becomes "" and fails the `startswith` check cleanly.
+        # Assert dist.attestations.provenance.predicateType is a SLSA URI.
+        # jq `//` returns "" for null/missing → missing attestation fails cleanly.
         env:
           VERSION: ${{ needs.publish-npm.outputs.version }}
         run: |
@@ -656,27 +574,11 @@ jobs:
           echo "Package installation successful"
 
       - name: Verify Sigstore provenance signatures
-        # Verified shape of `npm audit signatures --json` (npm/cli source
-        # `lib/utils/verify-signatures.js`, latest):
-        #   { invalid: [...], missing: [...] }
-        # With `--include-attestations` (added in npm 11.12.0, PR #9049,
-        # commit 8eff5fb merged 2026-03-18) the output gains a third key:
-        #   { invalid: [...], missing: [...], verified: [{name, version, ...}] }
-        # `verified[]` is npm's POSITIVE list — every package whose Sigstore
-        # attestation was successfully verified. Without this flag, the audit
-        # only reports negative space; an empty `{ invalid:[], missing:[] }`
-        # is indistinguishable from "trivially nothing audited" — fail-open.
-        #
-        # Exit-code contract (verified in `verify-signatures.js`):
-        #   exit 0  → audit ran cleanly, JSON written to stdout
-        #   exit 1  → invalid/missing entries present (JSON still written)
-        #   throw   → no installed deps OR no supported-registry deps; npm
-        #             aborts BEFORE writing JSON, stdout is empty/non-JSON
-        #
-        # Retry rationale: Sigstore attestation propagation can lag tarball
-        # availability by 10s-2min under registry load. Schema validation,
-        # negative checks, and positive `verified[]` membership are ALL
-        # required to pass; any failure retries.
+        # Assert package@version appears in `verified[]` from
+        # `npm audit signatures --json --include-attestations`.
+        # Exit codes: 0 = clean JSON; 1 = invalid/missing entries (still JSON);
+        # throw = nothing to audit (no JSON output).
+        # Retry covers attestation propagation lag (up to ~2min).
         env:
           VERSION: ${{ needs.publish-npm.outputs.version }}
           PACKAGE_NAME: '@quickswap-defi/token-list'
@@ -687,30 +589,22 @@ jobs:
             echo ""
             echo "=== Sigstore verification attempt ${attempt}/10 ==="
 
-            # Fresh install per attempt: audit a freshly-fetched tarball, not
-            # whatever may be in the npm cache from a prior iteration.
+            # Fresh install per attempt (avoid npm cache reuse).
             rm -rf /tmp/verify-signatures
             mkdir -p /tmp/verify-signatures
             cd /tmp/verify-signatures
             npm init -y >/dev/null
             npm install "${PACKAGE_NAME}@${VERSION}" --ignore-scripts
 
-            # Capture stdout AND exit code separately. Without this, `|| true`
-            # silently swallows real failures; piping through `tee`+`grep`
-            # would corrupt the JSON. We need RC to distinguish "audit ran
-            # but found issues" (RC=1, JSON valid) from "audit threw before
-            # producing output" (RC>0, stdout empty).
+            # Capture stdout and exit code separately so we can distinguish
+            # JSON output (RC 0/1) from a throw (no JSON).
             set +e
             OUT=$(npm audit signatures --json --include-attestations 2>/dev/null)
             RC=$?
             set -e
             echo "npm exit code: ${RC}"
 
-            # Schema gate: must be a JSON object containing all three required
-            # keys. This trips on (a) empty stdout from "no deps" throws,
-            # (b) non-JSON error text, (c) partial JSON from interrupted runs,
-            # (d) old-npm output without `verified` (which would mean our
-            # upgrade-npm step failed silently).
+            # Schema gate: must be a JSON object with all three required keys.
             if ! echo "$OUT" | jq -e 'type == "object" and has("invalid") and has("missing") and has("verified")' >/dev/null 2>&1; then
               echo "Attempt ${attempt}: invalid or empty audit payload"
               echo "Raw output: ${OUT:-<empty>}"
@@ -718,7 +612,7 @@ jobs:
               continue
             fi
 
-            # Negative space check: no invalid signatures, no missing ones.
+            # No invalid or missing signatures.
             if ! echo "$OUT" | jq -e '(.invalid | length) == 0 and (.missing | length) == 0' >/dev/null; then
               echo "Attempt ${attempt}: audit reported invalid or missing entries:"
               echo "$OUT" | jq '{invalid, missing}'
@@ -726,10 +620,7 @@ jobs:
               continue
             fi
 
-            # POSITIVE assertion: our exact package@version must appear in
-            # `verified[]`. This is the check that defeats the trivially-empty
-            # audit fail-open — without this, an empty/unrelated audit slips
-            # through the negative check above.
+            # Positive assertion: our package@version must be in verified[].
             if ! echo "$OUT" | jq -e --arg n "$PACKAGE_NAME" --arg v "$VERSION" \
                  '.verified | map(select(.name == $n and .version == $v)) | length >= 1' >/dev/null; then
               echo "Attempt ${attempt}: ${PACKAGE_NAME}@${VERSION} not yet present in verified[] (likely attestation propagation lag)"
@@ -737,10 +628,7 @@ jobs:
               continue
             fi
 
-            # Belt-and-suspenders: registry metadata exposes SLSA provenance
-            # for this exact version. Catches the (unlikely) case where the
-            # tarball was published but the provenance bundle was rejected
-            # by the registry post-upload.
+            # Cross-check: registry metadata also reports SLSA provenance.
             if ! npm view "${PACKAGE_NAME}@${VERSION}" --json \
                  | jq -e '(.dist.attestations.provenance.predicateType // "") | startswith("https://slsa.dev/provenance/")' >/dev/null; then
               echo "Attempt ${attempt}: SLSA provenance not yet visible in registry metadata"
