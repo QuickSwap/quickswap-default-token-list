@@ -1,7 +1,7 @@
 name: PR policy (external token PRs)
 
-# ⚠️ MAINTAINERS: Do not add actions/checkout to this workflow.
-# Review security implications before modifying: https://git.io/JcGqL
+# Do not add actions/checkout to this workflow.
+# See https://git.io/JcGqL before modifying.
 
 on:
   pull_request_target:
@@ -12,6 +12,10 @@ permissions:
   pull-requests: write
   issues: write
 
+concurrency:
+  group: pr-policy-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   close_external_token_prs:
     name: Close external token list PRs (forks)
@@ -19,7 +23,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Enforce policy
-        uses: actions/github-script@v7
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             const pr = context.payload.pull_request;
@@ -28,7 +32,11 @@ jobs:
             // Draft PRs can be legit WIP from maintainers; don't interfere.
             if (pr.draft) return;
 
-            // Only target forks (this is the common vector for unsolicited PRs).
+            // Restrict to PRs targeting main; token-paths.json lives there.
+            // Out-of-tree base PRs are not handled by this policy.
+            if (pr.base?.ref !== "main") return;
+
+            // Only target forks.
             const isFork = pr.head?.repo?.full_name !== context.repo.owner + "/" + context.repo.repo;
             if (!isFork) return;
 
@@ -44,16 +52,38 @@ jobs:
               per_page: 100,
             });
 
-            const touchesTokenList = files.some((f) => {
-              const p = f.filename;
-              return (
-                p.startsWith("src/tokens/") ||
-                p.startsWith("assets/") ||
-                p === "package.json" ||
-                p === "package-lock.json" ||
-                p.startsWith("build/")
-              );
-            });
+            // Load prefix list from the BASE ref (single source of truth
+            // shared with tests.yaml).
+            const baseSha = pr.base?.sha;
+            if (!baseSha) {
+              core.setFailed("PR has no base SHA; cannot load token-paths.json");
+              return;
+            }
+            let prefixes;
+            try {
+              const { data: configFile } = await github.rest.repos.getContent({
+                owner,
+                repo,
+                path: ".github/token-paths.json",
+                ref: baseSha,
+              });
+              const configRaw = Buffer.from(configFile.content, "base64").toString("utf8");
+              const config = JSON.parse(configRaw);
+              prefixes = Array.isArray(config.prefixes) ? config.prefixes : [];
+            } catch (err) {
+              core.setFailed(`.github/token-paths.json missing or unreadable on base ref ${baseSha}; refusing to run with no policy`);
+              return;
+            }
+            if (prefixes.length === 0) {
+              core.setFailed("token-paths.json has no prefixes; refusing to run with empty policy");
+              return;
+            }
+
+            // Only treat as a token-listing PR when files match a prefix.
+            // package.json/lockfile/build edits alone don't trigger auto-close.
+            const touchesTokenList = files.some((f) =>
+              prefixes.some((p) => f.filename.startsWith(p))
+            );
 
             if (!touchesTokenList) return;
 
@@ -90,7 +120,7 @@ jobs:
               });
             }
 
-            // Close the PR. We intentionally do not auto-delete the fork branch.
+            // Close the PR (do not delete the fork branch).
             await github.rest.pulls.update({
               owner,
               repo,

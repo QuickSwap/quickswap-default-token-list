@@ -1,0 +1,7 @@
+{
+  "_comment": "Shared file-path prefixes used to identify PRs that modify token data or assets. Canonical source of truth for BOTH .github/workflows/pr-policy.yml (auto-close fork PRs that touch these paths) AND .github/workflows/tests.yaml (skip test runs on fork PRs that touch these paths). Any change here must be reflected in how both workflows interpret the list, but the literal prefixes themselves MUST live here and only here. Note: the 'assets/' prefix matches every path under assets/ — keep that directory exclusive to token logos, or narrow the prefix (e.g., 'assets/tokens/') if non-token assets are added.",
+  "prefixes": [
+    "src/tokens/",
+    "assets/"
+  ]
+}

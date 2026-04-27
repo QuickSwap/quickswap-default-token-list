@@ -1,25 +1,139 @@
 name: Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  test:
+  # Gate: on fork PRs that touch token data/assets, skip tests
+  # (those PRs are auto-closed by pr-policy.yml).
+  # Internal PRs and pushes to main always run tests.
+  changes:
+    name: Detect fork + token changes
+    # Only needed on pull_request; push to main runs tests unconditionally.
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      should_run: ${{ steps.decide.outputs.should_run }}
+    steps:
+      - name: Decide whether to run tests
+        id: decide
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            // The workflow trigger already filters on main; this assertion
+            // protects future maintainers who add another base branch.
+            const baseRef = pr?.base?.ref;
+            if (baseRef !== 'main') {
+              core.setFailed(`This gate only supports PRs targeting 'main'; got base='${baseRef}'.`);
+              return;
+            }
+
+            const isFork = pr?.head?.repo?.full_name !== owner + '/' + repo;
+            if (!isFork) {
+              core.setOutput('should_run', 'true');
+              return;
+            }
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner,
+              repo,
+              pull_number: pr.number,
+              per_page: 100,
+            });
+
+            // Load prefix list from the BASE ref (single source of truth
+            // shared with pr-policy.yml).
+            const baseSha = pr.base?.sha;
+            if (!baseSha) {
+              core.setFailed('PR has no base SHA; cannot load token-paths.json');
+              return;
+            }
+            let prefixes;
+            try {
+              const { data: configFile } = await github.rest.repos.getContent({
+                owner,
+                repo,
+                path: '.github/token-paths.json',
+                ref: baseSha,
+              });
+              const configRaw = Buffer.from(configFile.content, 'base64').toString('utf8');
+              const config = JSON.parse(configRaw);
+              prefixes = Array.isArray(config.prefixes) ? config.prefixes : [];
+            } catch (err) {
+              core.setFailed(`.github/token-paths.json missing or unreadable on base ref ${baseSha}; refusing to run with no policy`);
+              return;
+            }
+            if (prefixes.length === 0) {
+              core.setFailed('token-paths.json has no prefixes; refusing to run with empty policy');
+              return;
+            }
+
+            // A fork PR is "token-touching" only when files match a prefix.
+            // package.json/lockfile/build edits alone do not skip tests.
+            const touchesTokenList = files.some((f) =>
+              prefixes.some((p) => f.filename.startsWith(p))
+            );
+
+            if (touchesTokenList) {
+              core.info('Fork PR touches token-paths.json prefixes; pr-policy will auto-close. Skipping tests.');
+              core.setOutput('should_run', 'false');
+            } else {
+              core.setOutput('should_run', 'true');
+            }
+
+  test:
     name: Unit Tests
+    needs: [changes]
+    # Gate: !cancelled() opts out of skip-propagation when `changes` is
+    # intentionally skipped on push events. On pull_request, require `changes`
+    # to have succeeded and emitted should_run=true (fail-closed if not).
+    if: |
+      !cancelled() &&
+      (
+        github.event_name == 'push' ||
+        (needs.changes.result == 'success' && needs.changes.outputs.should_run == 'true')
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node 20.x
-        uses: actions/setup-node@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          node-version: '20'
+          # Pin to the SHA the `changes` gate evaluated.
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version: '24'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Run tests
         run: npm test
 
       - name: Basic security audit
-        run: npm audit --audit-level high
+        run: npm audit --audit-level=moderate
