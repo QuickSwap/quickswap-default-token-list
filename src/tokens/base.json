@@ -391,5 +391,13 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/ClawBank.webp"
+  },
+  {
+    "name": "SparkDEX",
+    "address": "0x1396aA964C6f8C8c860CE6268a7C9BAfB914e753",
+    "symbol": "SPRK",
+    "decimals": 18,
+    "chainId": 8453,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/SPRK.webp"
   }
 ]
