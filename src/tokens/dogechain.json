@@ -5,8 +5,7 @@
         "symbol": "WWDOGE",
         "decimals": 18,
         "chainId": 2000,
-        "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/74.png",
-        "trending": false
+        "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/74.png"
     },
     {
         "name": "Doge Dragon",

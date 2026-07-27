@@ -21,8 +21,7 @@
         "symbol": "wstETH",
         "decimals": 18,
         "chainId": 1946,
-        "logoURI": "https://assets.coingecko.com/coins/images/13442/small/steth_logo.png?1608607546",
-        "trending": false
+        "logoURI": "https://assets.coingecko.com/coins/images/13442/small/steth_logo.png?1608607546"
     },
     {
         "name": "Astar Minato Testnet Token",
@@ -30,7 +29,6 @@
         "symbol": "ASTR",
         "decimals": 18,
         "chainId": 1946,
-        "logoURI": "https://i.imgur.com/JzAwnk1.png",
-        "trending": false
+        "logoURI": "https://i.imgur.com/JzAwnk1.png"
     }
 ]

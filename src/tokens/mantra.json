@@ -5,8 +5,7 @@
     "symbol": "mantraUSD",
     "decimals": 6,
     "chainId": 5888,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/mantraUSD.webp",
-    "trending": false
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/mantraUSD.webp"
   },
   {
     "name": "USD Coin",
@@ -14,8 +13,7 @@
     "symbol": "USDC",
     "decimals": 6,
     "chainId": 5888,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDC.png",
-    "trending": false
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDC.png"
   },
   {
     "name": "Tether USD",
@@ -23,8 +21,7 @@
     "symbol": "USDT",
     "decimals": 6,
     "chainId": 5888,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDT.webp",
-    "trending": false
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDT.webp"
   },
   {
     "name": "Wrapped MANTRA",
@@ -32,8 +29,7 @@
     "symbol": "WMANTRA",
     "decimals": 18,
     "chainId": 5888,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/WOM.webp",
-    "trending": false
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/WOM.webp"
   },
   {
     "name": "Hyperliquid",
@@ -41,8 +37,7 @@
     "symbol": "HYPE",
     "decimals": 18,
     "chainId": 5888,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/HYPE.webp",
-    "trending": false
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/HYPE.webp"
   },
   {
     "name": "stMANTRA",
@@ -50,8 +45,7 @@
     "symbol": "stMANTRA",
     "decimals": 18,
     "chainId": 5888,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/stMANTRA.webp",
-    "trending": false
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/stMANTRA.webp"
   },
   {
     "name": "Cropto Wheat Token",
