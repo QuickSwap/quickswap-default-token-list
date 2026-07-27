@@ -225,36 +225,12 @@
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/tBTC.webp"
   },
   {
-    "name": "first choice coin",
-    "address": "0x50582260cea29663dBf0E7aaDbc1ef72Fa9f7768",
-    "symbol": "FCC",
-    "decimals": 18,
-    "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/FCC.webp"
-  },
-  {
     "name": "EURC",
     "address": "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42",
     "symbol": "EURC",
     "decimals": 6,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/EURC.webp"
-  },
-  {
-    "name": "Ratio1",
-    "address": "0x6444C6c2D527D85EA97032da9A7504d6d1448ecF",
-    "symbol": "R1",
-    "decimals": 18,
-    "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/RATIO1.webp"
-  },
-  {
-    "name": "metacademax",
-    "address": "0xBB2DB41e62abF596b7f8Ca7bD4733a7b357f5Ab9",
-    "symbol": "metacademax",
-    "decimals": 18,
-    "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/metacademax.webp"
   },
   {
     "name": "Wrapped eETH",
@@ -281,14 +257,6 @@
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/TOWER.webp"
   },
   {
-    "name": "NAVFinance",
-    "address": "0xA15D5c95b7c0EeCAC06F673Ad390ad6066705Af7",
-    "symbol": "NAV",
-    "decimals": 18,
-    "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/NAV.webp"
-  },
-  {
     "name": "Zora",
     "address": "0x1111111111166b7FE7bd91427724B487980aFc69",
     "symbol": "ZORA",
@@ -297,28 +265,12 @@
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/ZORA.webp"
   },
   {
-    "name": "Metacade",
-    "address": "0xc48823EC67720a04A9DFD8c7d109b2C3D6622094",
-    "symbol": "MCADE",
-    "decimals": 18,
-    "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/MCADE.webp"
-  },
-  {
     "name": "bAP3X",
     "address": "0x9208d82F121806A34a39bB90733b4C5c54F3993e",
     "symbol": "bAP3X",
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/bAP3X.webp"
-  },
-  {
-    "name": "Coinbase Wrapped ADA",
-    "address": "0xcbADA732173e39521CDBE8bf59a6Dc85A9fc7b8c",
-    "symbol": "cbADA",
-    "decimals": 6,
-    "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/cbADA.webp"
   },
   {
     "name": "Symmio",
@@ -335,22 +287,6 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/AIX.webp"
-  },
-  {
-    "name": "AITV",
-    "address": "0x45e4e92F5A94F4B741C9cb553FF8bE7B25Eb7dF5",
-    "symbol": "AITV",
-    "decimals": 18,
-    "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/AITV.webp"
-  },
-  {
-    "name": "Songjam by Virtuals",
-    "address": "0x4FF4d349CAa028BD069bbE85fA05253f96176741",
-    "symbol": "SANG",
-    "decimals": 18,
-    "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/SANG.webp"
   },
   {
     "name": "Kibble",
@@ -375,14 +311,6 @@
     "decimals": 18,
     "chainId": 8453,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/HANDL.webp"
-  },
-  {
-    "name": "PENMT Mettal",
-    "address": "0x862a1226E6EA04E34EA3ddB4346C7a2c693E06aB",
-    "symbol": "PENMT",
-    "decimals": 6,
-    "chainId": 8453,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/PENMT.webp"
   },
   {
     "name": "ClawBank",
