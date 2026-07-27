@@ -60,6 +60,7 @@ jobs:
               return;
             }
             let prefixes;
+            let maintenancePrefixes;
             try {
               const { data: configFile } = await github.rest.repos.getContent({
                 owner,
@@ -70,6 +71,9 @@ jobs:
               const configRaw = Buffer.from(configFile.content, "base64").toString("utf8");
               const config = JSON.parse(configRaw);
               prefixes = Array.isArray(config.prefixes) ? config.prefixes : [];
+              maintenancePrefixes = Array.isArray(config.maintenancePrefixes)
+                ? config.maintenancePrefixes
+                : [];
             } catch (err) {
               core.setFailed(`.github/token-paths.json missing or unreadable on base ref ${baseSha}; refusing to run with no policy`);
               return;
@@ -79,11 +83,18 @@ jobs:
               return;
             }
 
-            // Only treat as a token-listing PR when files match a prefix.
-            // package.json/lockfile/build edits alone don't trigger auto-close.
-            const touchesTokenList = files.some((f) =>
-              prefixes.some((p) => f.filename.startsWith(p))
-            );
+            // A PR counts as a token submission when it touches a configured
+            // token path, or when it adds a JSON file outside the configured
+            // maintenance paths. Modifying package.json, the lockfile or build
+            // output alone does not trigger auto-close.
+            const touchesTokenList =
+              files.some((f) => prefixes.some((p) => f.filename.startsWith(p))) ||
+              files.some(
+                (f) =>
+                  f.status === "added" &&
+                  f.filename.toLowerCase().endsWith(".json") &&
+                  !maintenancePrefixes.some((p) => f.filename.startsWith(p))
+              );
 
             if (!touchesTokenList) return;
 

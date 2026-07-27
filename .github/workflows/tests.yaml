@@ -67,6 +67,7 @@ jobs:
               return;
             }
             let prefixes;
+            let maintenancePrefixes;
             try {
               const { data: configFile } = await github.rest.repos.getContent({
                 owner,
@@ -77,6 +78,9 @@ jobs:
               const configRaw = Buffer.from(configFile.content, 'base64').toString('utf8');
               const config = JSON.parse(configRaw);
               prefixes = Array.isArray(config.prefixes) ? config.prefixes : [];
+              maintenancePrefixes = Array.isArray(config.maintenancePrefixes)
+                ? config.maintenancePrefixes
+                : [];
             } catch (err) {
               core.setFailed(`.github/token-paths.json missing or unreadable on base ref ${baseSha}; refusing to run with no policy`);
               return;
@@ -86,14 +90,21 @@ jobs:
               return;
             }
 
-            // A fork PR is "token-touching" only when files match a prefix.
-            // package.json/lockfile/build edits alone do not skip tests.
-            const touchesTokenList = files.some((f) =>
-              prefixes.some((p) => f.filename.startsWith(p))
-            );
+            // Mirrors the detection in pr-policy.yml: a fork PR counts as a
+            // token submission when it touches a configured token path, or
+            // when it adds a JSON file outside the configured maintenance
+            // paths. package.json/lockfile/build edits alone do not skip tests.
+            const touchesTokenList =
+              files.some((f) => prefixes.some((p) => f.filename.startsWith(p))) ||
+              files.some(
+                (f) =>
+                  f.status === 'added' &&
+                  f.filename.toLowerCase().endsWith('.json') &&
+                  !maintenancePrefixes.some((p) => f.filename.startsWith(p))
+              );
 
             if (touchesTokenList) {
-              core.info('Fork PR touches token-paths.json prefixes; pr-policy will auto-close. Skipping tests.');
+              core.info('Fork PR classified as a token submission; pr-policy will auto-close. Skipping tests.');
               core.setOutput('should_run', 'false');
             } else {
               core.setOutput('should_run', 'true');
