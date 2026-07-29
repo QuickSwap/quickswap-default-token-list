@@ -2,7 +2,7 @@
 
 **Unsolicited token listing PRs are not accepted.** If you are requesting a token listing, please follow `README.md` → **Token Listing Process** (BD approval required).
 
-If this PR comes from a fork **and** modifies `src/tokens/` or `assets/`, it may be automatically closed as spam.
+Fork PRs that submit token data are closed automatically.
 
 ---
 

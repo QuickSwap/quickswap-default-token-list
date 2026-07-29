@@ -1,5 +1,5 @@
 {
-  "_comment": "Shared configuration used to identify PRs that submit token data or assets. Canonical source of truth for BOTH .github/workflows/pr-policy.yml (auto-close fork PRs) AND .github/workflows/tests.yaml (skip test runs on those same fork PRs). Both workflows MUST interpret this file identically; the literal values MUST live here and only here. 'prefixes' lists the paths that hold token data and logos — note that 'assets/' matches every path under assets/, so keep that directory exclusive to token logos, or narrow the prefix (e.g., 'assets/tokens/') if non-token assets are added. 'maintenancePrefixes' lists the paths a fork PR may add files to without being treated as a token submission; keep it short. A missing or empty 'maintenancePrefixes' is treated as an empty list.",
+  "_comment": "Shared configuration consumed identically by .github/workflows/pr-policy.yml and .github/workflows/tests.yaml. Both workflows MUST interpret this file the same way; the literal values MUST live here and only here. 'prefixes' are the paths that hold token data and logos — note that 'assets/' matches every path under assets/, so keep that directory exclusive to token logos, or narrow the prefix (e.g., 'assets/tokens/') if non-token assets are added. 'maintenancePrefixes' and 'maintenanceFiles' describe the repository-maintenance surface: directory prefixes and exact basenames respectively. A missing or non-array value is treated as an empty list.",
   "prefixes": [
     "src/tokens/",
     "assets/"
@@ -8,5 +8,15 @@
     ".github/",
     "docs/",
     "test/"
+  ],
+  "maintenanceFiles": [
+    "package.json",
+    "package-lock.json",
+    "tsconfig.json",
+    "renovate.json",
+    "commitlint.config.json",
+    ".prettierrc.json",
+    ".eslintrc.json",
+    ".releaserc.json"
   ]
 }

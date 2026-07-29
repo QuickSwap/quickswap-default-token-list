@@ -68,6 +68,7 @@ jobs:
             }
             let prefixes;
             let maintenancePrefixes;
+            let maintenanceFiles;
             try {
               const { data: configFile } = await github.rest.repos.getContent({
                 owner,
@@ -81,6 +82,7 @@ jobs:
               maintenancePrefixes = Array.isArray(config.maintenancePrefixes)
                 ? config.maintenancePrefixes
                 : [];
+              maintenanceFiles = Array.isArray(config.maintenanceFiles) ? config.maintenanceFiles : [];
             } catch (err) {
               core.setFailed(`.github/token-paths.json missing or unreadable on base ref ${baseSha}; refusing to run with no policy`);
               return;
@@ -92,15 +94,22 @@ jobs:
 
             // Mirrors the detection in pr-policy.yml: a fork PR counts as a
             // token submission when it touches a configured token path, or
-            // when it adds a JSON file outside the configured maintenance
-            // paths. package.json/lockfile/build edits alone do not skip tests.
+            // when it introduces a JSON file outside the configured maintenance
+            // surface. "Introduces" covers added, renamed and copied entries.
+            // Editing existing package/lockfile/build output alone does not
+            // skip tests.
+            const INTRODUCES = ['added', 'renamed', 'copied'];
+            const basename = (p) => p.slice(p.lastIndexOf('/') + 1);
+            const isMaintenance = (name) =>
+              maintenancePrefixes.some((p) => name.startsWith(p)) ||
+              maintenanceFiles.includes(basename(name));
             const touchesTokenList =
               files.some((f) => prefixes.some((p) => f.filename.startsWith(p))) ||
               files.some(
                 (f) =>
-                  f.status === 'added' &&
+                  INTRODUCES.includes(f.status) &&
                   f.filename.toLowerCase().endsWith('.json') &&
-                  !maintenancePrefixes.some((p) => f.filename.startsWith(p))
+                  !isMaintenance(f.filename)
               );
 
             if (touchesTokenList) {
