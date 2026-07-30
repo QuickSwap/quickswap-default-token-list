@@ -29,8 +29,7 @@
         "symbol": "ASTR",
         "decimals": 18,
         "chainId": 1868,
-        "logoURI": "https://i.imgur.com/JzAwnk1.png",
-        "trending": false
+        "logoURI": "https://i.imgur.com/JzAwnk1.png"
       },
       {
         "name": "Mother of Memes",
@@ -38,8 +37,7 @@
         "symbol": "HAHA",
         "decimals": 18,
         "chainId": 1868,
-        "logoURI": "https://i.imgur.com/ggpoiid.png",
-        "trending": false
+        "logoURI": "https://i.imgur.com/ggpoiid.png"
       },
       {
         "name": "Wrapped BTC",
@@ -47,8 +45,7 @@
         "symbol": "WBTC",
         "decimals": 8,
         "chainId": 1868,
-        "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png",
-        "trending": false
+        "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png"
       },
       {
         "name": "QuickSwap",
@@ -56,8 +53,7 @@
         "symbol": "QUICK",
         "decimals": 18,
         "chainId": 1868,
-        "logoURI": "https://i.ibb.co/HGWTLM7/Quick-Icon-V2.png",
-        "trending": false
+        "logoURI": "https://i.ibb.co/HGWTLM7/Quick-Icon-V2.png"
       },
       {
         "name": "Governance Health Token",
@@ -65,8 +61,7 @@
         "symbol": "GHT",
         "decimals": 18,
         "chainId": 1868,
-        "logoURI": "https://i.imgur.com/H9BmSFr.png",
-        "trending": false
+        "logoURI": "https://i.imgur.com/H9BmSFr.png"
       },
       {
         "name": "Utility Health Token",
@@ -74,8 +69,7 @@
         "symbol": "UHT",
         "decimals": 18,
         "chainId": 1868,
-        "logoURI": "https://i.imgur.com/Sp37vt7.png",
-        "trending": false
+        "logoURI": "https://i.imgur.com/Sp37vt7.png"
       },
       {
         "name": "Wrapped stASTR",
@@ -83,7 +77,6 @@
         "symbol": "WSTASTR",
         "decimals": 18,
         "chainId": 1868,
-        "logoURI": "https://astakes-organization.gitbook.io/~gitbook/image?url=https%3A%2F%2F2158577729-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FZvrQzyC6CUbKT18tX4R4%252Fuploads%252FNTjfHGwra2Nzb4Cnkv4R%252FwstASTR.png%3Falt%3Dmedia%26token%3Dc5b6b977-5f01-449e-afaa-f9093501c1f4&width=768&dpr=2&quality=100&sign=1a82949e&sv=2",
-        "trending": false
+        "logoURI": "https://astakes-organization.gitbook.io/~gitbook/image?url=https%3A%2F%2F2158577729-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FZvrQzyC6CUbKT18tX4R4%252Fuploads%252FNTjfHGwra2Nzb4Cnkv4R%252FwstASTR.png%3Falt%3Dmedia%26token%3Dc5b6b977-5f01-449e-afaa-f9093501c1f4&width=768&dpr=2&quality=100&sign=1a82949e&sv=2"
       }
 ]
