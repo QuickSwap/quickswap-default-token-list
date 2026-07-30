@@ -67,6 +67,8 @@ jobs:
               return;
             }
             let prefixes;
+            let maintenancePrefixes;
+            let maintenanceFiles;
             try {
               const { data: configFile } = await github.rest.repos.getContent({
                 owner,
@@ -77,6 +79,10 @@ jobs:
               const configRaw = Buffer.from(configFile.content, 'base64').toString('utf8');
               const config = JSON.parse(configRaw);
               prefixes = Array.isArray(config.prefixes) ? config.prefixes : [];
+              maintenancePrefixes = Array.isArray(config.maintenancePrefixes)
+                ? config.maintenancePrefixes
+                : [];
+              maintenanceFiles = Array.isArray(config.maintenanceFiles) ? config.maintenanceFiles : [];
             } catch (err) {
               core.setFailed(`.github/token-paths.json missing or unreadable on base ref ${baseSha}; refusing to run with no policy`);
               return;
@@ -86,14 +92,25 @@ jobs:
               return;
             }
 
-            // A fork PR is "token-touching" only when files match a prefix.
-            // package.json/lockfile/build edits alone do not skip tests.
-            const touchesTokenList = files.some((f) =>
-              prefixes.some((p) => f.filename.startsWith(p))
-            );
+            // Mirrors the classification in pr-policy.yml; the two MUST stay
+            // identical. INTRODUCES is the set of file statuses that mean the
+            // entry is new to the tree.
+            const INTRODUCES = ['added', 'renamed', 'copied'];
+            const basename = (p) => p.slice(p.lastIndexOf('/') + 1);
+            const isMaintenance = (name) =>
+              maintenancePrefixes.some((p) => name.startsWith(p)) ||
+              maintenanceFiles.includes(basename(name));
+            const touchesTokenList =
+              files.some((f) => prefixes.some((p) => f.filename.startsWith(p))) ||
+              files.some(
+                (f) =>
+                  INTRODUCES.includes(f.status) &&
+                  f.filename.toLowerCase().endsWith('.json') &&
+                  !isMaintenance(f.filename)
+              );
 
             if (touchesTokenList) {
-              core.info('Fork PR touches token-paths.json prefixes; pr-policy will auto-close. Skipping tests.');
+              core.info('Fork PR classified as a token submission; pr-policy will auto-close. Skipping tests.');
               core.setOutput('should_run', 'false');
             } else {
               core.setOutput('should_run', 'true');
