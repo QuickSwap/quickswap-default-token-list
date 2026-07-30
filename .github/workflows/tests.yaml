@@ -92,12 +92,9 @@ jobs:
               return;
             }
 
-            // Mirrors the detection in pr-policy.yml: a fork PR counts as a
-            // token submission when it touches a configured token path, or
-            // when it introduces a JSON file outside the configured maintenance
-            // surface. "Introduces" covers added, renamed and copied entries.
-            // Editing existing package/lockfile/build output alone does not
-            // skip tests.
+            // Mirrors the classification in pr-policy.yml; the two MUST stay
+            // identical. INTRODUCES is the set of file statuses that mean the
+            // entry is new to the tree.
             const INTRODUCES = ['added', 'renamed', 'copied'];
             const basename = (p) => p.slice(p.lastIndexOf('/') + 1);
             const isMaintenance = (name) =>

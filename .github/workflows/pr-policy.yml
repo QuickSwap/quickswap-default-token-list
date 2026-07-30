@@ -85,12 +85,9 @@ jobs:
               return;
             }
 
-            // A PR counts as a token submission when it touches a configured
-            // token path, or when it introduces a JSON file outside the
-            // configured maintenance surface. "Introduces" covers added,
-            // renamed and copied entries, since renaming reports its own
-            // status. Editing existing package/lockfile/build output alone does
-            // not qualify.
+            // Classify the PR against the configured token paths and
+            // maintenance surface. INTRODUCES is the set of file statuses that
+            // mean the entry is new to the tree.
             const INTRODUCES = ["added", "renamed", "copied"];
             const basename = (p) => p.slice(p.lastIndexOf("/") + 1);
             const isMaintenance = (name) =>
