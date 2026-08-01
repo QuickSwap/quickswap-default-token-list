@@ -31,7 +31,7 @@
   "homepage": "https://quickswap.exchange",
   "devDependencies": {
     "@ethersproject/address": "5.7.0",
-    "@uniswap/token-lists": "1.0.0-beta.33",
+    "@uniswap/token-lists": "npm:quickswap-token-lists@^1.0.2",
     "ajv": "6.14.0",
     "chai": "4.5.0",
     "mocha": "11.7.2",

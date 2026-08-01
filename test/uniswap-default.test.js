@@ -2,13 +2,28 @@ const packageJson = require('../package.json');
 const { expect } = require('chai');
 const { getAddress } = require('@ethersproject/address');
 const Ajv = require('ajv');
+const schema = require('@uniswap/token-lists/src/tokenlist.schema.json');
 const buildList = require('../src/buildList');
 
 const ajv = new Ajv({ allErrors: true, format: 'full' });
+const validate = ajv.compile(schema);
+// Local list-level cap, kept in addition to the schema check: the schema
+// dependency resolves to a package outside this repo, so a widened upstream
+// maxLength would silently loosen this assertion too. This value must never
+// be raised without confirming it against the schema the app enforces.
+const LIST_NAME_MAX_LENGTH = 20;
 
 describe('buildList', () => {
   const defaultTokenList = buildList();
 
+  it('conforms to the token list schema', () => {
+    const valid = validate(defaultTokenList);
+    expect(valid, ajv.errorsText(validate.errors, { separator: '\n' })).to.equal(true);
+  });
+
+  it('list name does not exceed the schema-enforced maximum length', () => {
+    expect(defaultTokenList.name.length).to.be.at.most(LIST_NAME_MAX_LENGTH);
+  });
 
   it('contains no duplicate addresses', () => {
     const map = {};
