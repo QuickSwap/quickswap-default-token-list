@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Dai Stablecoin",
+    "address": "0x83fd06F0846d9D90B3016bF670Efe2E0B11cDe14",
+    "symbol": "DAI",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/DAI.webp"
+  },
+  {
+    "name": "Bridged USDT",
+    "address": "0xDfb6a28BC6DC51fed17c27C880F2c66cDd040A3e",
+    "symbol": "USDT",
+    "decimals": 6,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDT.webp"
+  }
+]
