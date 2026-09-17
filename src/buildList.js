@@ -19,6 +19,7 @@ const SOMNIA_TESTNET = require('./tokens/somnia_testnet.json');
 const BASE = require('./tokens/base.json');
 const SOMNIA = require('./tokens/somnia.json');
 const MANTRA = require('./tokens/mantra.json');
+const ANUBIS = require('./tokens/anubis.json');
 
 module.exports = function buildList() {
   const parsed = version.split('.');
@@ -56,7 +57,8 @@ module.exports = function buildList() {
       ...SOMNIA_TESTNET,
       ...BASE,
       ...SOMNIA,
-      ...MANTRA
+      ...MANTRA,
+      ...ANUBIS
     ]
       // sort them by symbol for easy readability
       .sort((t1, t2) => {

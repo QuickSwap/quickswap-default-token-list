@@ -87,6 +87,7 @@ You must contact our BD team directly to initiate the process. Do not open a Git
 | IMX | 13371 |
 | X1 | 195 |
 | Dogechain | 2000 |
+| AnubisChain | 6714 |
 | And more... | See `src/tokens/` |
 
 ## Development (Maintainers Only)
