@@ -14,5 +14,29 @@
     "decimals": 6,
     "chainId": 6714,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDT.webp"
+  },
+  {
+    "name": "Bridged A",
+    "address": "0xA921267c56B3a57696d6Fd7949c9FaD0A8E0c177",
+    "symbol": "A",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/A.webp"
+  },
+  {
+    "name": "Sweets",
+    "address": "0x2654d71e897D769daB854d9dc00B3165716f3fa7",
+    "symbol": "Sweets",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/Sweets.webp"
+  },
+  {
+    "name": "Bridged USDC",
+    "address": "0x7DD9c7cBC32dF500Fa3C06fD60Cd62C4E97B2eEF",
+    "symbol": "USDC",
+    "decimals": 6,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDC.webp"
   }
 ]
