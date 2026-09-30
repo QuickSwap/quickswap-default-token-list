@@ -38,5 +38,21 @@
     "decimals": 6,
     "chainId": 6714,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDC.webp"
+  },
+  {
+    "name": "Longinus",
+    "address": "0x4D1D808a081FdAc440703b3765FC61f8028C06B8",
+    "symbol": "LGNS",
+    "decimals": 9,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/LGNS.webp"
+  },
+  {
+    "name": "Rome",
+    "address": "0x2e045E1380f5F5b6E7550328910A7377c9FcE59D",
+    "symbol": "RM",
+    "decimals": 9,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/RM.webp"
   }
 ]
