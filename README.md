@@ -147,3 +147,6 @@ GPL-3.0-or-later - See [LICENSE](./LICENSE)
 * **Twitter:** <https://twitter.com/QuickswapDEX>
 
 **Maintained by:** [QuickSwap Team](https://quickswap.exchange)
+
+<!-- ci note -->
+
