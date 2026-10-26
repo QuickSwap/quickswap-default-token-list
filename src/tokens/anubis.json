@@ -56,7 +56,7 @@
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/RM.webp"
   },
   {
-    "name": "Tether USD (LayerZero OFT)",
+    "name": "Anubis LayerZero USDT",
     "address": "0xA0bD8B3d33718F623C5C1F1551B5B069f6a4F127",
     "symbol": "USDT.lz",
     "decimals": 6,
@@ -64,7 +64,7 @@
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDT.webp"
   },
   {
-    "name": "USD Coin (LayerZero OFT)",
+    "name": "Anubis LayerZero USDC",
     "address": "0x283B21431130544D8DE08756313EF06A38a2a81e",
     "symbol": "USDC.lz",
     "decimals": 6,
@@ -72,7 +72,7 @@
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDC.webp"
   },
   {
-    "name": "Dai Stablecoin (LayerZero OFT)",
+    "name": "Anubis LayerZero DAI",
     "address": "0x9aB7638f85eCfb449Cef84d11e2Da69694B3b792",
     "symbol": "DAI.lz",
     "decimals": 18,
