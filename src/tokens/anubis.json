@@ -54,5 +54,229 @@
     "decimals": 9,
     "chainId": 6714,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/RM.webp"
+  },
+  {
+    "name": "Tether USD (LayerZero OFT)",
+    "address": "0xA0bD8B3d33718F623C5C1F1551B5B069f6a4F127",
+    "symbol": "USDT.lz",
+    "decimals": 6,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDT.webp"
+  },
+  {
+    "name": "USD Coin (LayerZero OFT)",
+    "address": "0x283B21431130544D8DE08756313EF06A38a2a81e",
+    "symbol": "USDC.lz",
+    "decimals": 6,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDC.webp"
+  },
+  {
+    "name": "Dai Stablecoin (LayerZero OFT)",
+    "address": "0x9aB7638f85eCfb449Cef84d11e2Da69694B3b792",
+    "symbol": "DAI.lz",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/DAI.webp"
+  },
+  {
+    "name": "Anubis LayerZero ETH",
+    "address": "0xf0Cf5B49E8cd02573EC2F76Ab3b357A7Eab7bE3d",
+    "symbol": "ETH",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/ETH.webp"
+  },
+  {
+    "name": "Anubis LayerZero WBTC",
+    "address": "0x287A0E98feC5c41fbaf53B63882a602a24d21640",
+    "symbol": "WBTC",
+    "decimals": 8,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/WBTC.webp"
+  },
+  {
+    "name": "Anubis LayerZero USD1",
+    "address": "0x820d2B28c34f87195ab32055c054Ce84d43d1360",
+    "symbol": "USD1",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USD1.webp"
+  },
+  {
+    "name": "Anubis LayerZero PAXG",
+    "address": "0x7A0B1fA85d1E89116256D5250d4c368D752c3e79",
+    "symbol": "PAXG",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/PAXG.webp"
+  },
+  {
+    "name": "Anubis LayerZero XAUt",
+    "address": "0xdDfEAA69B9351156BE245915C3f1ce45Ac7c0544",
+    "symbol": "XAUt",
+    "decimals": 6,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/XAUt.webp"
+  },
+  {
+    "name": "Anubis LayerZero USDe",
+    "address": "0x6F0cA9A07690905CfbfC6c75ac8F69fCea4ebD38",
+    "symbol": "USDe",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDe.webp"
+  },
+  {
+    "name": "Anubis LayerZero USDS",
+    "address": "0xA6DB5061A613176aB8F8ae868BF22C1c3dD88363",
+    "symbol": "USDS",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/USDS.webp"
+  },
+  {
+    "name": "Anubis LayerZero LINK",
+    "address": "0x5c79e306FBEE477F0F727138080d0EAb0f7556A4",
+    "symbol": "LINK",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/LINK.webp"
+  },
+  {
+    "name": "Anubis LayerZero UNI",
+    "address": "0x75112Cb111A2b51de4846cD0183545f28F6e3E16",
+    "symbol": "UNI",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/UNI.webp"
+  },
+  {
+    "name": "Anubis LayerZero SKY",
+    "address": "0x1fF6Ea9AbBa7C7d9F524962A5d32899cda47655e",
+    "symbol": "SKY",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/SKY.webp"
+  },
+  {
+    "name": "Anubis LayerZero AAPLon",
+    "address": "0xc6D0778718d40f31422e60F25299A04878E8d9c2",
+    "symbol": "AAPLon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/AAPLon.webp"
+  },
+  {
+    "name": "Anubis LayerZero AMDon",
+    "address": "0x7c2Ff3733683817b66834B29562A6AF4A70eF7F9",
+    "symbol": "AMDon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/AMDon.webp"
+  },
+  {
+    "name": "Anubis LayerZero CRCLon",
+    "address": "0xD578D5f983DA24F27F5506fA5285eE54778AC8FF",
+    "symbol": "CRCLon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/CRCLon.webp"
+  },
+  {
+    "name": "Anubis LayerZero GMEon",
+    "address": "0x033815B275eDA321BcCFa5487728CBc7f87bEb20",
+    "symbol": "GMEon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/GMEon.webp"
+  },
+  {
+    "name": "Anubis LayerZero GOOGLon",
+    "address": "0xa37e25C021851F49A14F3490BE2C410b8A2226f8",
+    "symbol": "GOOGLon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/GOOGLon.webp"
+  },
+  {
+    "name": "Anubis LayerZero INTCon",
+    "address": "0x7c29CE7AaA51C3Cc671805449a79078d926babc3",
+    "symbol": "INTCon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/INTCon.webp"
+  },
+  {
+    "name": "Anubis LayerZero MRNAon",
+    "address": "0x551F93186CC1a123481b7BBC11D056a899d7B9e1",
+    "symbol": "MRNAon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/MRNAon.webp"
+  },
+  {
+    "name": "Anubis LayerZero MSFTon",
+    "address": "0xc8fA84483EEbF11f2A7F61ACc0417e84e7043845",
+    "symbol": "MSFTon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/MSFTon.webp"
+  },
+  {
+    "name": "Anubis LayerZero MSTRon",
+    "address": "0x0dFD1c436ddCAfe468eEa8d67e47a5BB315f389c",
+    "symbol": "MSTRon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/MSTRon.webp"
+  },
+  {
+    "name": "Anubis LayerZero MUon",
+    "address": "0x567c7f4587532FF4645D46c2546e80ADE6782B12",
+    "symbol": "MUon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/MUon.webp"
+  },
+  {
+    "name": "Anubis LayerZero NFLXon",
+    "address": "0xA77609896bb3D6D4dB05D06C957CB0C611f58f31",
+    "symbol": "NFLXon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/NFLXon.webp"
+  },
+  {
+    "name": "Anubis LayerZero NVDAon",
+    "address": "0xcc1b7bc3dDEC73986C63E878C7C81e614d030A5d",
+    "symbol": "NVDAon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/NVDAon.webp"
+  },
+  {
+    "name": "Anubis LayerZero SNDKon",
+    "address": "0x51dbea18a37b503C1207b6B6cEB678182f72a91e",
+    "symbol": "SNDKon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/SNDKon.webp"
+  },
+  {
+    "name": "Anubis LayerZero SPCXon",
+    "address": "0x4AB3Dab17a8607F874Cd9987ee57Fc972BEe8D04",
+    "symbol": "SPCXon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/SPCXon.webp"
+  },
+  {
+    "name": "Anubis LayerZero TSLAon",
+    "address": "0x2700fdFfBBC8bE673e80B7faF8a302F5B5196C90",
+    "symbol": "TSLAon",
+    "decimals": 18,
+    "chainId": 6714,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/TSLAon.webp"
   }
 ]
