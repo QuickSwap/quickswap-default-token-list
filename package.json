@@ -40,9 +40,12 @@
   "overrides": {
     "bn.js": "5.2.3",
     "diff": "8.0.3",
-    "minimatch": "10.2.4",
+    "minimatch": "11.0.5",
     "brace-expansion": "5.0.12",
-    "serialize-javascript": "7.0.5",
+    "serialize-javascript": "7.1.4",
+    "mocha": {
+      "glob": "14.0.4"
+    },
     "rimraf": {
       "glob": {
         "minimatch": "3.1.4"
