@@ -14,13 +14,5 @@
     "decimals": 18,
     "chainId": 4663,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/WETH.webp"
-  },
-  {
-    "name": "Wrapped BTC",
-    "address": "0x6bac06600D220Ac5Ac281AD1f504D2Cf0F90F6e6",
-    "symbol": "WBTC",
-    "decimals": 8,
-    "chainId": 4663,
-    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/WBTC.webp"
   }
 ]
