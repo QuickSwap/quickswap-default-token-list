@@ -88,6 +88,9 @@ You must contact our BD team directly to initiate the process. Do not open a Git
 | X1 | 195 |
 | Dogechain | 2000 |
 | AnubisChain | 6714 |
+| Arbitrum One | 42161 |
+| BNB Smart Chain | 56 |
+| Robinhood Chain | 4663 |
 | And more... | See `src/tokens/` |
 
 ## Development (Maintainers Only)

@@ -20,6 +20,9 @@ const BASE = require('./tokens/base.json');
 const SOMNIA = require('./tokens/somnia.json');
 const MANTRA = require('./tokens/mantra.json');
 const ANUBIS = require('./tokens/anubis.json');
+const ARBITRUM = require('./tokens/arbitrum.json');
+const BSC = require('./tokens/bsc.json');
+const ROBINHOOD = require('./tokens/robinhood.json');
 
 module.exports = function buildList() {
   const parsed = version.split('.');
@@ -58,7 +61,10 @@ module.exports = function buildList() {
       ...BASE,
       ...SOMNIA,
       ...MANTRA,
-      ...ANUBIS
+      ...ANUBIS,
+      ...ARBITRUM,
+      ...BSC,
+      ...ROBINHOOD
     ]
       // sort them by symbol for easy readability
       .sort((t1, t2) => {
