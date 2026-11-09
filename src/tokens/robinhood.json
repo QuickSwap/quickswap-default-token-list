@@ -14,5 +14,37 @@
     "decimals": 18,
     "chainId": 4663,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/WETH.webp"
+  },
+  {
+    "name": "Lighter",
+    "address": "0xeeca2E7Dc194a320d349122d88259bB9595a4cB0",
+    "symbol": "LIT",
+    "decimals": 18,
+    "chainId": 4663,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/LIT.webp"
+  },
+  {
+    "name": "Pendle",
+    "address": "0x5E49E1f85813F2B65858860A3FA231b4186f2e0E",
+    "symbol": "PENDLE",
+    "decimals": 18,
+    "chainId": 4663,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/PENDLE.webp"
+  },
+  {
+    "name": "ChainLink Token",
+    "address": "0x492641F648a4986844848E0beFE66D14817bCE34",
+    "symbol": "LINK",
+    "decimals": 18,
+    "chainId": 4663,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/LINK.webp"
+  },
+  {
+    "name": "Pons",
+    "address": "0x39dBED3a2bd333467115dE45665cC57F813C4571",
+    "symbol": "PONS",
+    "decimals": 18,
+    "chainId": 4663,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/PONS.webp"
   }
 ]
