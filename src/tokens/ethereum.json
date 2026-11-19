@@ -1,13 +1,5 @@
 [
   {
-    "name": "Matic",
-    "address": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
-    "symbol": "MATIC",
-    "decimals": 18,
-    "chainId": 1,
-    "logoURI": "https://i.imgur.com/uIExoAr.png"
-  },
-  {
     "name": "Dai Stablecoin",
     "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
     "symbol": "DAI",
@@ -86,5 +78,13 @@
     "decimals": 18,
     "chainId": 1,
     "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/ADI.webp"
+  },
+  {
+    "name": "Polygon Ecosystem Token",
+    "address": "0x455e53CBB86018Ac2B8092FdCd39d8444aFFC3F6",
+    "symbol": "POL",
+    "decimals": 18,
+    "chainId": 1,
+    "logoURI": "https://raw.githubusercontent.com/QuickSwap/quickswap-default-token-list/main/assets/POL.webp"
   }
 ]
